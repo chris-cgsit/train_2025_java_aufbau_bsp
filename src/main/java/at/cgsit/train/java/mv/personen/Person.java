@@ -7,9 +7,24 @@ import java.util.UUID;
  * Gemeinsam genutzt von Mitarbeiter und Kunde.
  */
 public abstract class Person {
-  private final String id;         // Eindeutige ID (mit UUID generiert)
+  /**
+   * Eindeutige ID für jede Person, wird mithilfe von UUID generiert.
+   */
+  private final String id;
+
+  /**
+   * Vorname der Person.
+   */
   private String vorname;
+
+  /**
+   * Nachname der Person.
+   */
   private String nachname;
+
+  /**
+   * E-Mail-Adresse der Person.
+   */
   private String email;
 
   // Konstruktor
