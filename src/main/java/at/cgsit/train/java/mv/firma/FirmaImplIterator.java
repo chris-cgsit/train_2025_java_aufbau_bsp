@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 /**
  * Implementierung mit Schleifen und Iteratoren.
  */
-public class FirmaImplIterator extends FirmaBase {
+public class FirmaImplIterator extends Firma {
 
     @Override
     public boolean removeById(String id) {

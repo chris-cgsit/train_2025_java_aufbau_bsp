@@ -13,24 +13,6 @@ import java.util.stream.Collectors;
  */
 public abstract class Firma extends FirmaBase implements PersonManager {
 
-
-    // Sucht eine Person anhand ihrer ID
-    public Optional<Person> findById(String id) {
-        return personen.stream()
-                       .filter(person -> person.getId().equals(id))
-                       .findFirst();
-    }
-
-    // Sucht Personen anhand eines Teilstrings im Namen
-    public List<Person> findByName(String teil) {
-        return personen.stream()
-                       .filter(person -> (person.getVorname() + " " + person.getNachname())
-                                         .toLowerCase()
-                                         .contains(teil.toLowerCase()))
-                       .collect(Collectors.toList());
-    }
-
-
     // Listet alle Mitarbeiter einer bestimmten Abteilung auf
     public List<Mitarbeiter> mitarbeiterNachAbteilung(Mitarbeiter.Beschaeftigungsart art) {
         return personen.stream()

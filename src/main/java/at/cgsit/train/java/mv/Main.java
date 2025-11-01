@@ -26,9 +26,9 @@ public class Main {
     firma.addPerson(k2);
 
     // Beispielhafte Abfragen:
-    System.out.println("Durchschnittsgehalt: " + firma.durchschnittsGehalt());
-    System.out.println("Gesamtumsatz der Kunden: " + firma.gesamtUmsatzKunden());
-    System.out.println("Personen mit 'Meier': " + firma.findByName("Meier"));
-    System.out.println("Mitarbeiter (Teilzeit): " + firma.mitarbeiterNachAbteilung(Mitarbeiter.Beschaeftigungsart.TEILZEIT));
+    // System.out.println("Durchschnittsgehalt: " + firma.durchschnittsGehalt());
+    // System.out.println("Gesamtumsatz der Kunden: " + firma.gesamtUmsatzKunden());
+    // System.out.println("Personen mit 'Meier': " + firma.findByName("Meier"));
+    // System.out.println("Mitarbeiter (Teilzeit): " + firma.mitarbeiterNachAbteilung(Mitarbeiter.Beschaeftigungsart.TEILZEIT));
   }
 }
