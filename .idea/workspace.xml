@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AIAssistantCustomInstructionsStorage">
+    <option name="instructions">
+      <map>
+        <entry key="AIAssistant.General.ProjectPrompt">
+          <value>
+            <AIAssistantStoredInstruction>
+              <option name="actionId" value="AIAssistant.General.ProjectPrompt" />
+              <option name="content" value="# CGS IT – AI Guardrails for Java Grundkurs&#10;# Focus: Java Basics, Maven, JUnit&#10;&#10;Role:&#10;  Java Trainer &amp; Mentor (CGS IT)&#10;  Ziel: Sauberer, lehrreicher Code für den Java-Grundkurs.&#10;&#10;Scope:&#10;  Themen: Java-Klassen, Vererbung, Interfaces, Collections, Exceptions,&#10;  Kontrollstrukturen, Methoden, Unit Tests mit JUnit5, Maven Buildstruktur.&#10;&#10;Rules:&#10;  - Erzeuge nur einfachen, didaktisch klaren Code ohne Frameworks (kein Spring, kein Quarkus).&#10;  - Verwende ausschließlich Standard-Java (min. Java 17 oder 21) + JUnit 5 + Maven.&#10;  - Halte Namenskonventionen:&#10;      Klassen PascalCase, Methoden camelCase, Konstanten GROSS_SCHREIBUNG.&#10;  - Kein unnötiger Boilerplate oder generierte Kommentare.&#10;  - static oder instanz Variablen werden statt mitt // mit javadoc versehen&#10;  - Erkläre neue Konzepte im Kommentar über der Methode oder Klasse in 1-2 Sätzen.&#10;  - Wenn keine Vorgabe, dann frag nach Beispielen aus realem Alltag (Person, Konto, Produkt, etc.).&#10;  - Code soll für Anfänger:innen leicht lesbar und kompilierbar sein.&#10;  - Keine IDE-spezifischen Annotationen, keine externen Plugins.&#10;  - Baue Maven-Struktur immer wie folgt:&#10;        src/&#10;          main/java/...   → produktiver Code&#10;          test/java/...   → JUnit-Tests&#10;  - Verwende JUnit-Assertions (`assertEquals`, `assertTrue`, `assertThrows`),&#10;    keine System.out-Ausgaben in Tests.&#10;  - Keine Auto-Refactorings ohne Erklärung.&#10;  - Aktuell keine Verwendung von Streams, sondern klassische Implementierung&#10;&#10;Acceptance Criteria:&#10;  - Projekt lässt sich mit `mvn clean test` erfolgreich bauen.&#10;  - Jeder Codeabschnitt ist vollständig, kompiliert und ausführbar.&#10;  - Tests laufen fehlerfrei und demonstrieren den behandelten Lerninhalt.&#10;  - AI-Antworten enthalten bei Bedarf eine kurze Erläuterung (warum / wie es funktioniert).&#10;  - Kein Code außerhalb des aktuellen Themas oder Kapitels (keine Datenbanken, Web, UI).&#10;&#10;Optional Add-Ons (für Trainer):&#10;  - Wenn ein Thema „erweitert“ wird, bitte Schritt-für-Schritt-Erklärung generieren.&#10;  - Immer im „didaktischen Modus“: lieber mehr Kommentare als zu wenig.&#10;&#10;End of Guardrails&#10;" />
+            </AIAssistantStoredInstruction>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="87b9db1d-4481-48b3-867f-14dcf880e98c" name="Changes" comment="v1 personen">
+      <change afterPath="$PROJECT_DIR$/.idea/aws.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/at/cgsit/train/java/mv/firma/Firma.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/at/cgsit/train/java/mv/firma/PersonManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/at/cgsit/train/java/mv/personen/Kunde.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/at/cgsit/train/java/mv/personen/Mitarbeiter.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="package-info" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
+  <component name="ProjectId" id="34sIJSBPtdyWu067gyAkhCYan4S" />
+  <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showVisibilityIcons" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "Maven.train_2025_java_aufbau_bsp [clean...].executor": "Run",
+    "Maven.train_2025_java_aufbau_bsp [clean].executor": "Run",
+    "Maven.train_2025_java_aufbau_bsp [install].executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultAutoModeForALLUsers.v1": "true",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "junie.onboarding.icon.badge.shown": "true",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "to.speed.mode.migration.done": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\_training_2025_Wifi_SWDEV\cgs_projekte\train_2025_java_aufbau_bsp\src\main\java\at\cgsit\train\java\mv" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="at.cgsit.train.java.mv.Main" />
+      <module name="train_2025_java_aufbau_bsp" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="at.cgsit.train.java.mv.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.27397.103" />
+        <option value="bundled-js-predefined-d6986cc7102b-3aa1da707db6-JavaScript-IU-252.27397.103" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="87b9db1d-4481-48b3-867f-14dcf880e98c" name="Changes" comment="" />
+      <created>1761995781325</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1761995781325</updated>
+      <workItem from="1761995782425" duration="2685000" />
+      <workItem from="1761999286642" duration="182000" />
+      <workItem from="1761999504770" duration="1874000" />
+      <workItem from="1762005194134" duration="1987000" />
+    </task>
+    <task id="LOCAL-00001" summary="v1">
+      <option name="closed" value="true" />
+      <created>1761996405228</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1761996405228</updated>
+    </task>
+    <task id="LOCAL-00002" summary="v1 personen">
+      <option name="closed" value="true" />
+      <created>1762005998952</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1762005998952</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="v1" />
+    <MESSAGE value="v1 personen" />
+    <option name="LAST_COMMIT_MESSAGE" value="v1 personen" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
