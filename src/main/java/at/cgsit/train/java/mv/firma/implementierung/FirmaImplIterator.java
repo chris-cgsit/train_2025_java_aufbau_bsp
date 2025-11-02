@@ -63,18 +63,18 @@ public class FirmaImplIterator extends Firma {
     }
 
   @Override
-  public List<Person> findByNachname(String sbParam) {
+  public List<Person> findByNachname(String teil) {
     // result sammelt alle passenden Personen.
     List<Person> result = new ArrayList<>();
 
-    if (sbParam == null || sbParam.isBlank()) {
+    if (teil == null || teil.isBlank()) {
       return result; // leere Liste zurückgeben, wenn Suchtext leer
     }
 
     // Für jede person in der Liste:
     // Vor- und Nachname werden zusammengefügt ("Vorname Nachname").
     //    Vergleich erfolgt case-insensitiv mit contains().
-    String suchbegriff = sbParam.toLowerCase();
+    String suchbegriff = teil.toLowerCase();
 
     for (Person person : personen) {
       // String vollname = (person.getVorname() + " " + person.getNachname()).toLowerCase();
