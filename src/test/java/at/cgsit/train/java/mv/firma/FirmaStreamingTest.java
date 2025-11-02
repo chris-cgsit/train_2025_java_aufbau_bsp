@@ -1,9 +1,8 @@
 package at.cgsit.train.java.mv.firma;
 
-import at.cgsit.train.java.mv.firma.implementierung.FirmaImplIterator;
 import at.cgsit.train.java.mv.firma.implementierung.FirmaImplStream;
 
-public class FirmaStreamingTest extends  FirmaTest  {
+public class FirmaStreamingTest extends AlltemeinerFirmaTest {
 
   @Override
   public void createFirmaInstance() {

@@ -13,7 +13,7 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public abstract class FirmaTest {
+public abstract class AlltemeinerFirmaTest {
 
     protected Firma firma;
 
@@ -155,7 +155,7 @@ public abstract class FirmaTest {
   }
 
   @Test
-  void testFindByName() {
+  void testFindByNachname() {
     // Suche nach einem Teilstring
     List<Person> ergebnis = firma.findByNachname("Schmidt");
     assertEquals(1, ergebnis.size());

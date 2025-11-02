@@ -7,10 +7,7 @@ import at.cgsit.train.java.mv.personen.Abteilung;
 import at.cgsit.train.java.mv.personen.Mitarbeiter;
 import at.cgsit.train.java.mv.personen.Person;
 
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
-import java.util.OptionalDouble;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -83,10 +80,19 @@ public class FirmaImplStream extends Firma implements PersonManager, Mitarbeiter
   }
 
   @Override
-  public List<Person> findByNachname(String teil) {
+  public List<Person> findByNachname(String suchbegriff) {
+
+// 1. Validierung des Suchbegriffs
+    if (suchbegriff == null || suchbegriff.trim().isEmpty()) {
+      // Wenn der Suchbegriff null, leer oder nur Leerzeichen enthält,
+      // gib eine leere Liste zurück.
+      return List.of();
+    }
+
+
     // CGS : ich habe die suche vereinfacht auf suche Nachname
     return personen.stream()
-        .filter(person -> (person.getNachname()).toLowerCase().contains(teil.toLowerCase()))
+        .filter(person -> (person.getNachname()).toLowerCase().contains(suchbegriff.toLowerCase()))
         .collect(Collectors.toList());
   }
 

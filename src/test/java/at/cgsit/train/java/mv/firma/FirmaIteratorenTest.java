@@ -2,7 +2,7 @@ package at.cgsit.train.java.mv.firma;
 
 import at.cgsit.train.java.mv.firma.implementierung.FirmaImplIterator;
 
-public class FirmaIteratorenTest extends  FirmaTest  {
+public class FirmaIteratorenTest extends AlltemeinerFirmaTest {
 
 
   @Override
