@@ -18,10 +18,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="87b9db1d-4481-48b3-867f-14dcf880e98c" name="Changes" comment="v6 doku">
+    <list default="true" id="87b9db1d-4481-48b3-867f-14dcf880e98c" name="Changes" comment="v7 enhancements">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/at/cgsit/train/java/mv/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/cgsit/train/java/mv/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/at/cgsit/train/java/mv/firma/FirmaTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/at/cgsit/train/java/mv/firma/FirmaTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/cgsit/train/java/mv/firma/implementierung/FirmaImplIterator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/cgsit/train/java/mv/firma/implementierung/FirmaImplIterator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/cgsit/train/java/mv/firma/implementierung/FirmaImplStream.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/cgsit/train/java/mv/firma/implementierung/FirmaImplStream.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/at/cgsit/train/java/mv/firma/FirmaIteratorenTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/at/cgsit/train/java/mv/firma/FirmaIteratorenTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/at/cgsit/train/java/mv/firma/FirmaStreamingTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/at/cgsit/train/java/mv/firma/FirmaStreamingTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,9 +34,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="package-info" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -55,6 +58,8 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.Main.executor": "Run",
+    "JUnit.FirmaIteratorenTest.executor": "Run",
+    "JUnit.FirmaStreamingTest.executor": "Run",
     "JUnit.FirmaTest.executor": "Run",
     "Maven.train_2025_java_aufbau_bsp [clean...].executor": "Run",
     "Maven.train_2025_java_aufbau_bsp [clean].executor": "Run",
@@ -91,8 +96,11 @@
     <key name="CreateTestDialog.RecentsKey">
       <recent name="at.cgsit.train.java.mv.firma" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="at.cgsit.train.java.mv.firma" />
+    </key>
   </component>
-  <component name="RunManager" selected="JUnit.FirmaTest">
+  <component name="RunManager" selected="JUnit.FirmaStreamingTest">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="at.cgsit.train.java.mv.Main" />
       <module name="train_2025_java_aufbau_bsp" />
@@ -102,6 +110,36 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FirmaIteratorenTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="train_2025_java_aufbau_bsp" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="at.cgsit.train.java.mv.firma.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="at.cgsit.train.java.mv.firma" />
+      <option name="MAIN_CLASS_NAME" value="at.cgsit.train.java.mv.firma.FirmaIteratorenTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FirmaStreamingTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="train_2025_java_aufbau_bsp" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="at.cgsit.train.java.mv.firma.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="at.cgsit.train.java.mv.firma" />
+      <option name="MAIN_CLASS_NAME" value="at.cgsit.train.java.mv.firma.FirmaStreamingTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -123,6 +161,8 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.FirmaStreamingTest" />
+        <item itemvalue="JUnit.FirmaIteratorenTest" />
         <item itemvalue="JUnit.FirmaTest" />
         <item itemvalue="Application.Main" />
       </list>
@@ -147,7 +187,7 @@
       <workItem from="1761999286642" duration="182000" />
       <workItem from="1761999504770" duration="1874000" />
       <workItem from="1762005194134" duration="1987000" />
-      <workItem from="1762024916069" duration="9071000" />
+      <workItem from="1762024916069" duration="16019000" />
     </task>
     <task id="LOCAL-00001" summary="v1">
       <option name="closed" value="true" />
@@ -269,7 +309,47 @@
       <option name="project" value="LOCAL" />
       <updated>1762034596865</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="v6 doku">
+      <option name="closed" value="true" />
+      <created>1762034969914</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1762034969914</updated>
+    </task>
+    <task id="LOCAL-00017" summary="v6 doku">
+      <option name="closed" value="true" />
+      <created>1762036403235</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1762036403235</updated>
+    </task>
+    <task id="LOCAL-00018" summary="v6 doku">
+      <option name="closed" value="true" />
+      <created>1762074276678</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1762074276678</updated>
+    </task>
+    <task id="LOCAL-00019" summary="v6 doku">
+      <option name="closed" value="true" />
+      <created>1762084627876</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1762084627876</updated>
+    </task>
+    <task id="LOCAL-00020" summary="v7 enhancements">
+      <option name="closed" value="true" />
+      <created>1762085911929</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1762085911929</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -323,7 +403,8 @@
     <MESSAGE value="v4 doku 1" />
     <MESSAGE value="v5 doku 2" />
     <MESSAGE value="v6 doku" />
-    <option name="LAST_COMMIT_MESSAGE" value="v6 doku" />
+    <MESSAGE value="v7 enhancements" />
+    <option name="LAST_COMMIT_MESSAGE" value="v7 enhancements" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

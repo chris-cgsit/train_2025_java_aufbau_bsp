@@ -16,7 +16,12 @@ import java.util.*;
 // abstrakten methoden und interfaces die gefordert wurden hier implementiert sein oder in einer basis klasse davon
 public class FirmaImplIterator extends Firma {
 
-    @Override
+  // auch hier müssen wir den public 'Constructor bereitstellen der dann die SuperKonstruktoren aufruft
+  public FirmaImplIterator(String firmenNamen) {
+    super(firmenNamen);
+  }
+
+  @Override
     public boolean removeById(String id) {
         for (int i = 0; i < personen.size(); i++) {
             if (personen.get(i).getId().equals(id)) {

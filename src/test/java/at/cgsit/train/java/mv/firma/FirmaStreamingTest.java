@@ -7,6 +7,6 @@ public class FirmaStreamingTest extends  FirmaTest  {
 
   @Override
   public void createFirmaInstance() {
-    firma = new FirmaImplStream();
+    firma = new FirmaImplStream("Testfirma Stream Impl ");
   }
 }

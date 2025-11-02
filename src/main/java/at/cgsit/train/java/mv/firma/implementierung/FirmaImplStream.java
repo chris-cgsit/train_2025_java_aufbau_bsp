@@ -18,6 +18,11 @@ import java.util.stream.Collectors;
  */
 public class FirmaImplStream extends Firma implements PersonManager, MitarbeiterManagement {
 
+  // auch hier müssen wir den public 'Constructor bereitstellen der dann die SuperKonstruktoren aufruft
+  public FirmaImplStream(String firmenNamen) {
+    super(firmenNamen);
+  }
+
   /**
    * Entfernt eine Person anhand ihrer ID mit der Verwendung von Streams.
    *

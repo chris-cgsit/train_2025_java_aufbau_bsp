@@ -7,6 +7,6 @@ public class FirmaIteratorenTest extends  FirmaTest  {
 
   @Override
   public void createFirmaInstance() {
-    super.firma = new FirmaImplIterator();
+    super.firma = new FirmaImplIterator("Testfirma Iterator IMple");
   }
 }
