@@ -10,6 +10,7 @@ import at.cgsit.train.java.mv.personen.Person;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Main {
 
@@ -64,13 +65,27 @@ public class Main {
        firma.addPerson(person);
     }
 
-
     // Beispielhafte Abfragen:
     System.out.println("Durchschnittsgehalt: " + firma.durchschnittsGehalt());
-
     // System.out.println("Gesamtumsatz der Kunden: " + firma.gesamtUmsatzKunden());
-
     System.out.println("Personen mit 'Meier': " + firma.findByNachname("Meier"));
     System.out.println("Mitarbeiter (Teilzeit): " + firma.mitarbeiterEinerAbteilung(Abteilung.IT));
+
+    // --- Interaktiver Teil (wie im vorherigen Beispiel) ---
+    // Dies ist nur zur Demonstration, um die Funktionalität zu zeigen
+    Scanner scanner = new Scanner(System.in);
+    List<Person> beispieldaten = erstelleBeispieldaten(); // Annahme: Methode existiert
+
+    System.out.println("\n--- Suche starten ---");
+    System.out.print("Geben Sie den Suchbegriff für den Nachnamen ein (case-insensitiv): ");
+    String suchbegriff = scanner.nextLine();
+
+    List<Person> ergebnisse = firma.findByNachname(suchbegriff);
+
+    // Ergebnisse ausgeben (Details siehe vorheriges Beispiel)
+    System.out.println("\nGefundene Personen: " + ergebnisse.size());
+
+    scanner.close();
+
   }
 }
