@@ -9,6 +9,8 @@ public class FunctionMain {
     Consumer<String> drucker = System.out::println;
     drucker.accept("Hallo Welt!");
 
+
+
   }
 
 }
