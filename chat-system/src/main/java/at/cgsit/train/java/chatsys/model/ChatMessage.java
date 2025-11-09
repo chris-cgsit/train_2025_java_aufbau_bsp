@@ -2,12 +2,17 @@ package at.cgsit.train.java.chatsys.model;
 
 import java.time.Instant;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.UUID;
 
 public class ChatMessage {
 
-  // a universal unique identifier, to be able to create it anywhere in the universe
-  // immediately when the message is constructed
+  /**
+   * Represents a message in a chat system.
+   * Supports 1:1 and room messages. <br/>
+   * a universal unique identifier, to be able to create it anywhere in the universe
+   * immediately when the message is constructed
+   */
   private UUID messageId  = UUID.randomUUID();
 
   // chat room ID or 1:1 ID
@@ -17,20 +22,32 @@ public class ChatMessage {
   private String senderId;
   // the user who's the message recipent or null for room messages
   // optional for 1:1, null for room broadcast
-  private String recipientId;
+  private Optional<String> recipientId = Optional.empty();
 
   // this is the message itself, or any other content as a string
   private String content;
 
-  private String type;             // text | image | file
+  private MessageTyp type;             // text | image | file
 
   // a timestamp when the message was created
-  private Instant timestamp;
+
+  private Instant timestamp = Instant.now();
 
   public ChatMessage(String senderId, String recipientId, String content) {
     this.senderId = senderId;
-    this.recipientId = recipientId;
+    this.recipientId = recipientId.describeConstable();
     this.content = content;
+  }
+
+  /**
+   * validate myself
+   */
+  public void validate() {
+
+    /// objects require not null will throw a NullPointerException already if null
+    Objects.requireNonNull(chatId);
+    Objects.requireNonNull(senderId, "the sender id must be given for ANY message");
+    Objects.requireNonNull(content);
   }
 
   public UUID getMessageId() {
@@ -73,11 +90,11 @@ public class ChatMessage {
     this.content = content;
   }
 
-  public String getType() {
+  public MessageTyp getType() {
     return type;
   }
 
-  public void setType(String type) {
+  public void setType(MessageTyp type) {
     this.type = type;
   }
 
