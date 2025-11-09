@@ -16,7 +16,7 @@ import java.util.regex.Pattern;
 /**
  * ChatServer: verwaltet User, verteilt Nachrichten, führt Historie, prüft Schimpfwörter.
  */
-public class ChatServer implements ChatInterface {
+public class ChatServer implements ChatInterface, UserManagement {
 
   public static final String KEY_SYSTEM  = "_SYSTEM";
   public static final String KEY_NO_ROOM = "_NO_ROOM";
@@ -56,6 +56,7 @@ public class ChatServer implements ChatInterface {
    * und hier der user aktiv bereits hinzugefügt wird
    * @param user
    */
+  @Override
   public void addUser(ChatUser user) {
     users.put(user.getId(), user);
     System.out.printf("[Server] User: [%s] ist dem Chat beigetreten.\n", user.getUsername() );
@@ -70,6 +71,7 @@ public class ChatServer implements ChatInterface {
    * und sortieren aber case insensitive
    * @return
    */
+  @Override
   public List<ChatUser> getSortedUsersByName() {
 
     // java erlaubt uns hier die warning zu unterdrücken dass wir das gleich als return = schreiben könnten.
