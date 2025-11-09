@@ -15,7 +15,10 @@ import java.util.UUID;
  *         .timestamp(Instant.now())    // optional
  *         .build();
  */
-public static class Builder {
+public class Builder {
+
+  // WILL be used in SW Design and not in basic workshop
+
   private UUID messageId = UUID.randomUUID();
   private String chatId;
   private String senderId;
@@ -27,5 +30,5 @@ public static class Builder {
   public Builder chatId(String c) { this.chatId = c; return this; }
   public Builder senderId(String s) { this.senderId = s; return this; }
   public Builder content(String t) { this.content = t; return this; }
-  public ChatMessage build() { return new ChatMessage(this); }
+  // public ChatMessage build() { return new ChatMessage(this); }
 }

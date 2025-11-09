@@ -13,13 +13,13 @@ public class ChatMessage {
    * a universal unique identifier, to be able to create it anywhere in the universe
    * immediately when the message is constructed
    */
-  private UUID messageId  = UUID.randomUUID();
+  private final UUID messageId  = UUID.randomUUID();
 
   // chat room ID or 1:1 ID
   private String chatId;
 
   // the senders user id as a string
-  private String senderId;
+  private final String senderId;
   // the user who's the message recipent or null for room messages
   // optional for 1:1, null for room broadcast
   private Optional<String> recipientId = Optional.empty();
@@ -32,6 +32,25 @@ public class ChatMessage {
   // a timestamp when the message was created
 
   private Instant timestamp = Instant.now();
+
+  // let it autobox from boolean to Boolean for the fallback default
+  private Boolean isSystemMessage =  false;
+
+  public ChatMessage(String senderId, String content, Boolean isSystemMessage) {
+    this.senderId = senderId;
+    this.content = content;
+    this.isSystemMessage = isSystemMessage;
+    if (!isSystemMessage) {
+      throw new RuntimeException("Only System Message is allowed for This constructor");
+    }
+  }
+
+  public ChatMessage(ChatUser sender, ChatUser recipient, String content) {
+    this.senderId = sender.getStringId();
+    this.recipientId = recipient.getStringId().describeConstable();
+    this.content = content;
+  }
+
 
   public ChatMessage(String senderId, String recipientId, String content) {
     this.senderId = senderId;
@@ -54,9 +73,6 @@ public class ChatMessage {
     return messageId;
   }
 
-  public void setMessageId(UUID messageId) {
-    this.messageId = messageId;
-  }
 
   public String getChatId() {
     return chatId;
@@ -70,16 +86,12 @@ public class ChatMessage {
     return senderId;
   }
 
-  public void setSenderId(String senderId) {
-    this.senderId = senderId;
-  }
-
-  public String getRecipientId() {
+  public Optional<String> getRecipientId() {
     return recipientId;
   }
 
   public void setRecipientId(String recipientId) {
-    this.recipientId = recipientId;
+    this.recipientId = recipientId.describeConstable();
   }
 
   public String getContent() {
@@ -104,6 +116,18 @@ public class ChatMessage {
 
   public void setTimestamp(Instant timestamp) {
     this.timestamp = timestamp;
+  }
+
+  public void setRecipientId(Optional<String> recipientId) {
+    this.recipientId = recipientId;
+  }
+
+  public Boolean getSystemMessage() {
+    return isSystemMessage;
+  }
+
+  public void setSystemMessage(Boolean systemMessage) {
+    isSystemMessage = systemMessage;
   }
 
   @Override
