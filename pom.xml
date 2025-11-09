@@ -21,6 +21,7 @@
         <module>mitarbeitervw</module>
         <module>java_collections</module>
         <module>chat-system</module>
+        <module>chat-simple-server</module>
         <!--module>persistence</module -->
     </modules>
 
