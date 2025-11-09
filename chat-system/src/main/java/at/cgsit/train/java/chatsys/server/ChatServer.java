@@ -58,9 +58,29 @@ public class ChatServer implements ChatInterface {
    */
   public void addUser(ChatUser user) {
     users.put(user.getId(), user);
-    System.out.printf("[Server] User: [%s] ist dem Chat beigetreten.", user.getUsername() );
+    System.out.printf("[Server] User: [%s] ist dem Chat beigetreten.\n", user.getUsername() );
     // eigentlich sollten wir das broadcasten zu den clients, als Message mit typ user joined
   }
+
+  /**
+   * sortierte liste der user. wir haben ja "nur" ein hash set mit ids
+   * hier können wir wie mit einem Comparator als Functional one method interface
+   * @FunctionalInterface nach Name vergleichen.<br/>
+   * wir verwenden dazu die methoden referenz ChatUser::getUsername
+   * und sortieren aber case insensitive
+   * @return
+   */
+  public List<ChatUser> getSortedUsersByName() {
+
+    // java erlaubt uns hier die warning zu unterdrücken dass wir das gleich als return = schreiben könnten.
+    @SuppressWarnings("UnnecessaryLocalVariable")
+    List<ChatUser> result
+        = users.values().stream()
+        .sorted(Comparator.comparing(ChatUser::getUsername,  String.CASE_INSENSITIVE_ORDER))
+        .toList();
+    return  result;
+  }
+
 
   /** Einzige Send-Methode: akzeptiert fertige ChatMessage. */
   @Override

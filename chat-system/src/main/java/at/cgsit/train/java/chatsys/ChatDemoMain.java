@@ -1,7 +1,6 @@
 package at.cgsit.train.java.chatsys;
 
 import at.cgsit.train.java.chatsys.demotest.DemoUserGenerator;
-import at.cgsit.train.java.chatsys.exceptions.ProfanityException;
 import at.cgsit.train.java.chatsys.exceptions.ProfantitatException;
 import at.cgsit.train.java.chatsys.model.ChatMessage;
 import at.cgsit.train.java.chatsys.model.ChatUser;
@@ -22,9 +21,19 @@ public class ChatDemoMain {
     // Alle Demo-User generieren
     List<ChatUser> demoUsers = DemoUserGenerator.generateAll();
 
+    System.out.println("füge user dem server hinzu: \n");
+
     for (ChatUser user : demoUsers) {
       server.addUser(user);
     }
+
+    System.out.println("\n liste alle user vom server sortiert nach namen auf: \n");
+
+    List<ChatUser> sortedUsersByName = server.getSortedUsersByName();
+    sortedUsersByName
+        .stream()
+        .forEach( chatUser ->  System.out.printf("User: %s \n", chatUser.getUsername()));
+
 
     ChatUser first =  demoUsers.get(0);
     ChatUser second =  demoUsers.get(1);
