@@ -43,6 +43,9 @@ public class ChatHttpServer {
         server.createContext("/message", new PostMessageHandler());
         server.createContext("/messages", new GetMessagesHandler());
         server.createContext("/system", new PostSystemHandler()); // Trainer: System-Broadcast
+
+        // mit setExecutor(null) → requests handled one-by-one also "sequenziell".
+        // das ist ausreichend für uns und einfacher im debugging
         server.setExecutor(null);
         System.out.printf("Chat HTTP Server läuft auf http://localhost:%s", port);
         server.start();
