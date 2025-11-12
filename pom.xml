@@ -23,6 +23,7 @@
         <module>chat-system</module>
         <module>chat-simple-server</module>
         <module>simple_net_socket</module>
+        <module>java_file_io</module>
         <!--module>persistence</module -->
     </modules>
 
