@@ -9,6 +9,8 @@ public class EchoClient {
 
     public static void main(String[] args) {
         String host = "localhost";
+        // String host = "176.28.18.8";
+
         int port = AppConstants.SERVER_PORT_IP;
 
         try (Socket socket = new Socket(host, port);
