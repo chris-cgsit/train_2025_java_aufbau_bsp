@@ -13,21 +13,27 @@ public class EchoServer {
         System.out.println("EchoServer startet auf Port " + port + " ...");
 
         try (ServerSocket serverSocket = new ServerSocket(port)) {
-            Socket clientSocket = serverSocket.accept();
-            System.out.println("Client verbunden: " + clientSocket.getInetAddress());
 
-            try (BufferedReader in = new BufferedReader(
-                     new InputStreamReader(clientSocket.getInputStream()));
-                 PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true)) {
+            while (true) {
 
-                String line;
-                while ((line = in.readLine()) != null) {
-                    System.out.println("[Server empfängt] " + line);
-                    out.println("Echo: " + line);
+                Socket clientSocket = serverSocket.accept();
+                System.out.println("Client verbunden: " + clientSocket.getInetAddress());
+
+                try (BufferedReader in = new BufferedReader(
+                        new InputStreamReader(clientSocket.getInputStream()));
+                     PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true)) {
+
+                    String line;
+                    while ((line = in.readLine()) != null) {
+                        System.out.println("[Server empfängt] " + line);
+                        out.println("Echo: " + line);
+                    }
+                } catch (Exception ex) {
+                    System.out.println("Client hat abgebrochen" );
                 }
-            }
+        }
 
-        } catch (IOException e) {
+        } catch(IOException e){
             e.printStackTrace();
         }
     }

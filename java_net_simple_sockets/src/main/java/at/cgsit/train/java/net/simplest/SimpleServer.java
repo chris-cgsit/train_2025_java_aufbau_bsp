@@ -31,16 +31,19 @@ public class SimpleServer {
       // selbst wenn Fehler (IOException) auftreten.
 
       try (ServerSocket serverSocket = new ServerSocket(port)) {
+          System.out.println("ServerSocket erzeugt für port " + serverSocket.getLocalPort() );
 
-        // man könnte ein timeout configurieren: Warten maximal 5 Sekunden (5000 ms) auf eine Verbindung
+
+        // man könnte ein timeout konfigurieren: Warten maximal 5 Sekunden (5000 ms) auf eine Verbindung
         // serverSocket.setSoTimeout(5000);
 
         // Die Methode serverSocket.accept() hält den Server an und wartet, bis ein Client versucht, eine Verbindung herzustellen.
         // Sobald ein Client "anruft", wird eine Socket-Verbindung hergestellt.
-            Socket clientSocket = serverSocket.accept();
-            System.out.println("Client verbunden: " + clientSocket.getInetAddress());
+          Socket clientSocket = serverSocket.accept();
 
-            // Nach der Verbindung liest der Server die eingehenden Daten (Zeile für Zeile) über einen BufferedReader aus dem InputStream des Clients und gibt sie auf der Konsole aus.
+          System.out.println("Client verbunden: " + clientSocket.getInetAddress() + " " + clientSocket.getLocalPort() );
+
+          // Nach der Verbindung liest der Server die eingehenden Daten (Zeile für Zeile) über einen BufferedReader aus dem InputStream des Clients und gibt sie auf der Konsole aus.
             try (BufferedReader in = new BufferedReader(
                     new InputStreamReader(clientSocket.getInputStream()))) {
 
