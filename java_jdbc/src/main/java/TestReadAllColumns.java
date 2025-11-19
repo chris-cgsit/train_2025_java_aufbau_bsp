@@ -11,6 +11,7 @@ public class TestReadAllColumns {
         Connection conn = MakeDbConnection.makeMyConnection();
         List<TestEntity> testEntities = loadByNamePrefix(conn, null);
 
+        testEntities.stream().sorted().forEach(System.out::println);
     }
 
     public static List<TestEntity> loadByNamePrefix(Connection conn, String prefix) throws SQLException {

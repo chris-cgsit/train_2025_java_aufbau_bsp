@@ -8,7 +8,7 @@ import java.time.Instant;
  *     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
  * );
  */
-public class TestEntity {
+public class TestEntity implements Comparable {
     private Long id;
     private String name;
     private Boolean aktiv;
@@ -65,5 +65,12 @@ public class TestEntity {
                 ", aktiv=" + aktiv +
                 ", createdAt=" + createdAt +
                 '}';
+    }
+
+    // wir ordnen nach namen per default
+    @Override
+    public int compareTo(Object o) {
+        TestEntity e = (TestEntity) o;
+        return this.name.compareTo(e.getName());
     }
 }
