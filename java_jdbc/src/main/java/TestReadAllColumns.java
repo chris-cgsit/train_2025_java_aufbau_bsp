@@ -1,7 +1,5 @@
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,6 +33,17 @@ public class TestReadAllColumns {
             // Ein ResultSet ist ein Cursor über die Ergebnismenge.
             try (ResultSet rs = ps.executeQuery()) {
 
+                // fleissaufgabe das auslesen der vorhanden columnns
+                // Wenn die Query z.b. aktiv nicht auswählt, erscheint die Spalte nicht im ResultSet
+                // und ist somit weder lesbar noch im MetaData vorhanden.
+                ResultSetMetaData meta = rs.getMetaData();
+                int columnCount = meta.getColumnCount();
+
+                System.out.println("Available columns:");
+                for (int i = 1; i <= columnCount; i++) {
+                    System.out.println(" - " + meta.getColumnName(i));
+                }
+
                 while (rs.next()) {
 
                     // wenn das ResultSet scrollable ist → getRow() gültig
@@ -51,7 +60,10 @@ public class TestReadAllColumns {
                     TestEntity resultEntity = new TestEntity(name, aktiv);
                     resultEntity.setId(id);
                     if (ts != null) {
-                        resultEntity.setCreatedAt(ts.toInstant());
+                        // der java.sql.Timestamp kann ein java instance erzeugen.
+                        // da die Timestamp klasse sql spezifisch ist
+                        Instant instant = ts.toInstant();
+                        resultEntity.setCreatedAt(instant);
                     }
 
                     // egene objekt result liste
