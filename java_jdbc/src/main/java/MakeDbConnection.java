@@ -13,7 +13,8 @@ public class MakeDbConnection {
         // könnte auch aus einem config file gelesen werden, und oder auch als config hierarchie wie bei
         // spring oder quarkus
         String dbsystem = System.getenv("dbsystem");
-        if("postgres".equalsIgnoreCase(dbsystem)) {
+        // fallback to postgres
+        if("postgres".equalsIgnoreCase(dbsystem) || dbsystem == null) {
             // parameter für postgres
             url = "jdbc:postgresql://localhost:5432/testdb";
             user = "postgres";

@@ -7,17 +7,20 @@ public class TestReadAllColumns {
 
     static void main() throws SQLException {
         Connection conn = MakeDbConnection.makeMyConnection();
-        List<TestEntity> testEntities = loadByNamePrefix(conn, null);
+
+        //List<TestEntity> testEntities = loadByNamePrefix(conn, null);
+
+        List<TestEntity> testEntities = loadByNamePrefix(conn, "in");
 
         testEntities.stream().sorted().forEach(System.out::println);
     }
 
     public static List<TestEntity> loadByNamePrefix(Connection conn, String prefix) throws SQLException {
 
-        String baseSql = "SELECT * FROM test_entity";
+        String baseSql = "SELECT * FROM test_entity ";
         boolean usePrefix = (prefix != null);
 
-        String sql = usePrefix ? baseSql + " WHERE name LIKE ?" : baseSql;
+        String sql = usePrefix ? baseSql + "WHERE name LIKE ?" : baseSql;
 
         List<TestEntity> result = new ArrayList<>();
 
@@ -74,7 +77,5 @@ public class TestReadAllColumns {
 
         return result;
     }
-
-
 
 }

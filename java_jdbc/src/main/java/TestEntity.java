@@ -16,6 +16,8 @@ import java.time.Instant;
  *     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
  * );
  *
+ * TABELLE Löschen
+ * DROP TABLE 	 test_entity_TEMP;
  */
 public class TestEntity implements Comparable {
     private Long id;

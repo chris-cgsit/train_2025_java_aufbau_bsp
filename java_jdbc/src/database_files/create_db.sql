@@ -1,0 +1,15 @@
+ CREATE TABLE test_entity (
+     id BIGSERIAL PRIMARY KEY,
+     name VARCHAR(200) NOT NULL,
+     aktiv BOOLEAN,
+     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE buecher (
+     id BIGSERIAL PRIMARY KEY,
+     name VARCHAR(200) NOT NULL,
+     aktiv BOOLEAN,
+     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+ );
+
+

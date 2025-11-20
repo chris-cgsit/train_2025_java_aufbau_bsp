@@ -30,6 +30,7 @@
         <module>java_javafx</module>
         <module>java_jdbc</module>
         <module>java_obj_serialisierung</module>
+        <module>java_numbers</module>
     </modules>
 
     <dependencyManagement>
