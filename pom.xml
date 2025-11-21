@@ -20,12 +20,12 @@
     <modules>
         <module>a_02_java_basics</module>
         <module>a_40_collections</module>
-        <module>chat-system</module>
-        <module>chat-simple-server</module>
+        <module>hue_05_chat-system</module>
+        <module>a_68_chat-http_server</module>
         <module>a_66_simple_net_socket</module>
         <module>a_60_java_file_io</module>
         <module>a_67_net_simple_sockets</module>
-        <module>hue_chatsys</module>
+        <module>hue_05_01_chatsys_basic_sys</module>
         <module>b_18_swing_basics</module>
         <module>b_20_gui_javafx</module>
         <module>a_70_java_jdbc</module>
