@@ -5,7 +5,7 @@
 
 # Java Maven Projekt – Case-Insensitive Suche
 
-## Überblick
+## Überblick 
 
 Dieses Projekt dient als Beispielimplementierung für eine Case-Insensitive Suche nach Personendaten in einer Java-Anwendung. Es demonstriert zwei Implementierungsansätze:
 
