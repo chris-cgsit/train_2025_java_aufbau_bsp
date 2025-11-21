@@ -11,7 +11,7 @@
         <relativePath>..</relativePath>
     </parent>
 
-    <artifactId>train_java_mitarbeiterverwaltung</artifactId>
+    <artifactId>hue_04_mitarbeiterverwaltung</artifactId>
     <!-- version>1.0-SNAPSHOT</version-->
     <!-- packaging jar ist Default, kann weggelassen werden -->
     <!-- <packaging>jar</packaging> -->
