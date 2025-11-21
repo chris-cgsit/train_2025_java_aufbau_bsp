@@ -34,10 +34,10 @@ public class FlussBeispiele {
 //			noteAlsText = "Befriedigend";
 //			break;
 //		case 4:
-//			noteAlsText = "Genügend";
+//			noteAlsText = "Genuegend";
 //			break;
 //		case 5:
-//			noteAlsText = "Nicht genügend";
+//			noteAlsText = "Nicht genuegend";
 //			break;
 //		default:
 //			noteAlsText = "unbekannt";
@@ -51,8 +51,8 @@ public class FlussBeispiele {
 //		case 1 -> noteAlsText = "Sehr gut";
 //		case 2 -> noteAlsText = "Gut";
 //		case 3 -> noteAlsText = "Befriedigend";
-//		case 4 -> noteAlsText = "Genügend";
-//		case 5 -> noteAlsText = "Nicht genügend";
+//		case 4 -> noteAlsText = "Genugend";
+//		case 5 -> noteAlsText = "Nicht genÃ¼gend";
 //		default -> noteAlsText = "unbekannt";
 //		}
 
@@ -62,8 +62,8 @@ public class FlussBeispiele {
 		case 1 -> "Sehr gut";
 		case 2 -> "Gut";
 		case 3 -> "Befriedigend";
-		case 4 -> "Genügend";
-		case 5 -> "Nicht genügend";
+		case 4 -> "GenÃ¼gend";
+		case 5 -> "Nicht genÃ¼gend";
 		default -> "unbekannt";
 		}; // HIER ; notwendig!
 

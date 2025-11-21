@@ -38,12 +38,12 @@ public class VergleichsBeispiel {
 		
 		// uerberprueft ob es ausserhalb liegt
 		if (messwert < minimum || messwert > maximum) {
-			System.out.println("liegt auﬂerhalb");
+			System.out.println("liegt au√üerhalb");
 		}
 		
 		// XOR - exklusive oder
 		if (messwert < minimum ^ messwert > maximum) {
-			System.out.println("liegt auﬂerhalb");
+			System.out.println("liegt au√üerhalb");
 		}
 	}
 

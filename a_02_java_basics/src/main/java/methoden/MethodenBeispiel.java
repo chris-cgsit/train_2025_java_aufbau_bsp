@@ -26,7 +26,7 @@ public class MethodenBeispiel {
 		double ergebnis = a * b * c;
 		a = 7; // hat das eine auswirkung???
 		// ja aber NUR fuer a innerhalb der methode!
-		// keine auswirkung auf das urspünglich übergebene argument!!!
+		// keine auswirkung auf das urspuenglich Ã¼bergebene argument!!!
 		return ergebnis;
 	}
 	
