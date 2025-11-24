@@ -30,9 +30,9 @@ public class AppConfigurationManager {
     }
 
     /**
-     * Lädt die Konfiguration in folgender Priorität:
+     * Lädt die Konfiguration in folgender Prioritaet::
      *
-     *  1. Defaults aus Classpath (resources/server-config.properties)
+     *  1. Defaults aus dem Classpath (resources/server-config.properties)
      *  2. Externe Datei im Working Directory (./server-config.properties)
      *  3. Environment Variablen (ECHOSERVER_PORT, PORT, etc.)
      *  4. Programm-Argumente (--port=1234, --logfile=xyz.log)
