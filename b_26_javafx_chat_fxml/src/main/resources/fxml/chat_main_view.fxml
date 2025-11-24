@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="at.cgsit.chatsrv.ui.ChatMainController">
+
+    <!-- ===== Top: Menu Bar ===== -->
+    <top>
+        <MenuBar>
+            <menus>
+                <Menu text="File">
+                    <items>
+                        <MenuItem fx:id="connectMenuItem" text="Connect" onAction="#onConnect"/>
+                        <MenuItem fx:id="disconnectMenuItem" text="Disconnect" onAction="#onDisconnect"/>
+                        <SeparatorMenuItem/>
+                        <MenuItem fx:id="exitMenuItem" text="Exit" onAction="#onExit"/>
+                    </items>
+                </Menu>
+                <Menu text="View"/>
+                <Menu text="Help">
+                    <items>
+                        <MenuItem fx:id="aboutMenuItem" text="About" onAction="#onAbout"/>
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+    </top>
+
+    <!-- ===== Left: Chat Rooms ===== -->
+    <left>
+        <VBox spacing="8" prefWidth="220" style="-fx-background-color: #f5f5f5;">
+            <children>
+                <Label text="Chat Rooms"/>
+                <!-- LEFT: Chat Rooms -->
+                <ListView fx:id="roomsListView"
+                          prefWidth="200"
+                          onMouseClicked="#onRoomListClicked"/>
+            </children>
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+        </VBox>
+    </left>
+
+    <!-- ===== Right: Chat Users ===== -->
+    <right>
+        <VBox spacing="8" prefWidth="220" style="-fx-background-color: #f5f5f5;">
+            <children>
+                <Label text="Users"/>
+                <!-- RIGHT: Users -->
+                <ListView fx:id="usersListView"
+                          prefWidth="200"
+                          onMouseClicked="#onUserListClicked"/>
+            </children>
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+        </VBox>
+    </right>
+
+    <!-- ===== Center: Messages ===== -->
+    <center>
+        <VBox spacing="8">
+            <children>
+                <Label text="Messages"/>
+                <ListView fx:id="messagesListView" VBox.vgrow="ALWAYS"/>
+            </children>
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+        </VBox>
+    </center>
+
+    <!-- ===== Bottom: Input field + Send button ===== -->
+    <bottom>
+        <HBox spacing="8" style="-fx-border-color: #dddddd transparent transparent transparent;
+                                 -fx-border-width: 1 0 0 0;">
+            <children>
+                <TextField fx:id="messageInputField"
+                           promptText="Enter a new Chat Message ... "
+                           onAction="#onSendMessage"
+                           HBox.hgrow="ALWAYS"/>
+                <Button text="Send" onAction="#onSendMessage"/>
+            </children>
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+        </HBox>
+    </bottom>
+
+</BorderPane>
