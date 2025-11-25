@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+
+<GridPane xmlns="http://javafx.com/javafx"
+          xmlns:fx="http://javafx.com/fxml"
+          fx:controller="at.cgsit.a_jfxintro.grid.HelloGridController"
+          hgap="10" vgap="10"  >
+
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <!-- Vorname -->
+    <Label text="Vorname:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+    <TextField fx:id="txtVorname" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+    <!-- Nachname -->
+    <Label text="Nachname:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+    <TextField fx:id="txtNachname" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+    <!-- Button -->
+    <Button text="Say Hello"
+            onAction="#onSayHello"
+            GridPane.rowIndex="2" GridPane.columnIndex="0"
+            GridPane.columnSpan="2"
+            maxWidth="Infinity"/>
+
+    <!-- Output -->
+    <Label fx:id="lblOutput"
+           GridPane.rowIndex="3" GridPane.columnIndex="0"
+           GridPane.columnSpan="2"
+           style="-fx-font-weight: bold; -fx-text-fill: #336699;"/>
+</GridPane>

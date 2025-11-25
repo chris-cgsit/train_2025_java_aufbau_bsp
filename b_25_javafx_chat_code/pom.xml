@@ -62,6 +62,13 @@
                 <main.class>at.cgsit.a_jfxintro.hello.HelloFXApp</main.class>
             </properties>
         </profile>
+        <!-- at.cgsit.a_jfxintro.grid -->
+        <profile>
+            <id>jfx-hello-grid</id>
+            <properties>
+                <main.class>at.cgsit.a_jfxintro.grid.HelloGridApp</main.class>
+            </properties>
+        </profile>
     </profiles>
 
     <build>
