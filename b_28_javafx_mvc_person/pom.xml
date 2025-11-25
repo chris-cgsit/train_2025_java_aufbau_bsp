@@ -9,7 +9,7 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>b_25_javafx_chat_code</artifactId>
+    <artifactId>b_28_javafx_mvc_person</artifactId>
 
     <properties>
         <maven.compiler.source>25</maven.compiler.source>
@@ -47,19 +47,12 @@
     </dependencies>
 
     <profiles>
-        <!-- at.cgsit.a_jfxintro.person. -->
         <!-- Profil für Chat MainWindow -->
+        <!-- use it if multiple examples are used -->
         <profile>
-            <id>chat-main</id>
+            <id>person-main</id>
             <properties>
-                <main.class>at.cgsit.chatsrv.ui.ChatMainWindow</main.class>
-            </properties>
-        </profile>
-        <!-- Profil für Admin Panel App -->
-        <profile>
-            <id>jfx-hello</id>
-            <properties>
-                <main.class>at.cgsit.a_jfxintro.hello.HelloFXApp</main.class>
+                <main.class>at.cgsit.a_jfxintro.person.HelloFxPersonApp</main.class>
             </properties>
         </profile>
     </profiles>
@@ -84,7 +77,7 @@
                     <!-- Your JavaFX Application class -->
 
                     <!-- Die mainClass wird hier durch die Profile-Properties überschrieben -->
-                    <mainClass>${main.class}</mainClass>
+                    <mainClass>at.cgsit.a_jfxintro.person.HelloFxPersonApp</mainClass>
                 </configuration>
             </plugin>
         </plugins>
