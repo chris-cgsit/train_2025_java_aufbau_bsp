@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="at.cgsit.a_jfxintro.person.PersonController"
+      spacing="10" alignment="CENTER">
+
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <Label text="Person Editor"
+           style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
+
+    <GridPane hgap="10" vgap="10">
+
+        <Label text="Vorname:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+        <TextField fx:id="txtVorname" GridPane.rowIndex="0" GridPane.columnIndex="1"
+        editable="false "/>
+
+        <Label text="Nachname:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+        <TextField fx:id="txtNachname" GridPane.rowIndex="1" GridPane.columnIndex="1"
+                   editable="false "/>
+
+        <Label text="Geburtsdatum:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+        <DatePicker fx:id="dpGeburt" GridPane.rowIndex="2" GridPane.columnIndex="1"
+                    editable="false "/>
+
+        <Label text="Email:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+        <TextField fx:id="txtEmail" GridPane.rowIndex="3" GridPane.columnIndex="1"
+                   editable="false "/>
+
+    </GridPane>
+
+    <HBox spacing="10">
+        <Button text="Edit" fx:id="btnEdit" onAction="#onEdit"/>
+        <Button text="Save" fx:id="btnSave" onAction="#onSave" disable="true"/>
+    </HBox>
+
+    <!-- Status-Label extra -->
+    <Label fx:id="lblStatus"
+           style="-fx-text-fill: #555; -fx-font-size: 12px;"
+           alignment="CENTER_LEFT"
+           maxWidth="Infinity"/>
+
+
+</VBox>

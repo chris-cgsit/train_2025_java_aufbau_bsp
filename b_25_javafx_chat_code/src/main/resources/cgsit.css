@@ -1,0 +1,15 @@
+.root {
+    -fx-font-family: 'Segoe UI';
+    -fx-padding: 10;
+}
+
+.button {
+    -fx-background-color: #749DC6; /* CGS Blue */
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+.label {
+    -fx-font-size: 14px;
+}
+

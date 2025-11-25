@@ -39,7 +39,37 @@
             <artifactId>javafx-base</artifactId>
             <version>${javafx.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-fxml</artifactId>
+            <version>${javafx.version}</version>
+        </dependency>
     </dependencies>
+
+    <profiles>
+        <!-- at.cgsit.a_jfxintro.person. -->
+        <!-- Profil für Chat MainWindow -->
+        <profile>
+            <id>person-main</id>
+            <properties>
+                <main.class>at.cgsit.a_jfxintro.person.HelloFxPersonApp</main.class>
+            </properties>
+        </profile>
+        <!-- Profil für Chat MainWindow -->
+        <profile>
+            <id>chat-main</id>
+            <properties>
+                <main.class>at.cgsit.chatsrv.ui.ChatMainWindow</main.class>
+            </properties>
+        </profile>
+        <!-- Profil für Admin Panel App -->
+        <profile>
+            <id>jfx-hello</id>
+            <properties>
+                <main.class>at.cgsit.a_jfxintro.hello.HelloFXApp</main.class>
+            </properties>
+        </profile>
+    </profiles>
 
     <build>
         <plugins>
@@ -59,7 +89,9 @@
                 <version>${javafx.maven.plugin.version}</version>
                 <configuration>
                     <!-- Your JavaFX Application class -->
-                    <mainClass>at.cgsit.chatsrv.ui.ChatMainWindow</mainClass>
+
+                    <!-- Die mainClass wird hier durch die Profile-Properties überschrieben -->
+                    <mainClass>${main.class}</mainClass>
                 </configuration>
             </plugin>
         </plugins>
