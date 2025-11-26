@@ -3,6 +3,8 @@ package at.cgsit.a_jfxintro.hello;
 import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Font;
@@ -24,6 +26,16 @@ public class HelloFXApp extends Application {
         Label lbl = new Label("Hello Java FX!");
         lbl.setFont(Font.font("Arial", FontWeight.BOLD, 20));
         root.getChildren().add(lbl);
+
+        // ComboBox Beispiel
+        ComboBox<String> comboBox = new ComboBox<>();
+        comboBox.getItems().addAll("Option A", "Option B", "Option C");
+        comboBox.setPromptText("Bitte wählen...");
+
+        // CheckBox Beispiel
+        CheckBox checkBox = new CheckBox("Aktiv?");
+        checkBox.setSelected(false);
+
 
         // Scene für den Content erzeugen ...
         Scene scene = new Scene(root, 300, 150); // Fenstergröße angepasst für bessere Sichtbarkeit
