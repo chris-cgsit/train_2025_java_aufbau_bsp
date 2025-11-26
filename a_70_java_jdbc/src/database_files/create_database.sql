@@ -1,4 +1,4 @@
--- Database: testdb
+-- Database: testdb Änderung neu am26.11
 
 -- DROP DATABASE IF EXISTS testdb;
 
