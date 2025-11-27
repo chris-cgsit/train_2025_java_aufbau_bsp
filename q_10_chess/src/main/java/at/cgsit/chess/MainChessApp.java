@@ -1,9 +1,15 @@
 package at.cgsit.chess;
 
 import javafx.application.Application;
+import javafx.geometry.Insets;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+
+import java.util.Map;
+import java.util.TreeMap;
 
 /**
  * Hauptklasse der Anwendung.
@@ -28,8 +34,17 @@ public class MainChessApp extends Application {
         DragDropController dragController = new DragDropController(boardBuilder, gameState, pieceLoader);
         dragController.enableDragAndDropOnAllSquares();
 
+      // Debug-Button unterhalb des Boards
+      Button debugButton = new Button("Board Debug (Matrix)");
+      debugButton.setOnAction(event -> gameState.debugPrintBoardMatrix());
+
+      // Vertikales Layout: oben Board, darunter Button
+      VBox root = new VBox(10, board, debugButton);
+      root.setPadding(new Insets(10));
+
+
         // Szene anzeigen
-        Scene scene = new Scene(board);
+        Scene scene = new Scene(root);
         scene.getStylesheets().add(getClass().getResource("/chess/chess.css").toExternalForm());
 
         stage.setTitle("JavaFX Chess – CGS Edition");
