@@ -78,6 +78,12 @@
                 <main.class>at.cgsit.jfxintro.draganddrop.DragDropLabelsApp</main.class>
             </properties>
         </profile>
+        <profile>
+            <id>jfx-drag-and-drop-kanban</id>
+            <properties>
+                <main.class>at.cgsit.jfxintro.draganddrop.DragDropKanbanApp</main.class>
+            </properties>
+        </profile>
     </profiles>
 
     <build>
