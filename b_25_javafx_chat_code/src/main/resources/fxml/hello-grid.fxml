@@ -5,7 +5,7 @@
 
 <GridPane xmlns="http://javafx.com/javafx"
           xmlns:fx="http://javafx.com/fxml"
-          fx:controller="at.cgsit.a_jfxintro.grid.HelloGridController"
+          fx:controller="a_jfxintro.grid.HelloGridController"
           hgap="10" vgap="10"  >
 
     <padding>

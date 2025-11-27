@@ -46,6 +46,19 @@
         </dependency>
     </dependencies>
 
+    <profiles>
+        <!-- Profil für Chat MainWindow -->
+        <profile>
+            <id>chat-main</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <main.class>at.cgsit.chatsrv.ui.ChatClientApp</main.class>
+            </properties>
+        </profile>
+    </profiles>
+
     <build>
         <plugins>
             <!-- Java compiler -->
@@ -64,7 +77,8 @@
                 <version>${javafx.maven.plugin.version}</version>
                 <configuration>
                     <!-- Your JavaFX Application class -->
-                    <mainClass>at.cgsit.chatsrv.ui.ChatClientApp</mainClass>
+                    <!-- Die mainClass wird hier durch die Profile-Properties überschrieben -->
+                    <mainClass>${main.class}</mainClass>
                 </configuration>
             </plugin>
         </plugins>

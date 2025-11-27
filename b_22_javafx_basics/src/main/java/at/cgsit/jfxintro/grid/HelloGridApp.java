@@ -1,4 +1,4 @@
-package at.cgsit.a_jfxintro.grid;
+package at.cgsit.jfxintro.grid;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

@@ -21,5 +21,5 @@
 
 /* Hervorhebung beim Drag&Drop */
 .drag-target {
-    -fx-opacity: 0.7;
+    -fx-opacity: 0.85;
 }

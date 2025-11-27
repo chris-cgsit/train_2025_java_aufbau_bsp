@@ -1,4 +1,4 @@
-package at.cgsit.a_jfxintro.hello;
+package at.cgsit.jfxintro.ahello;
 
 import javafx.application.Application;
 import javafx.application.Platform;

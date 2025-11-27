@@ -9,7 +9,8 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>b_25_javafx_chat_code</artifactId>
+    <artifactId>b_22_javafx_basics</artifactId>
+
 
     <properties>
         <maven.compiler.source>25</maven.compiler.source>
@@ -47,14 +48,34 @@
     </dependencies>
 
     <profiles>
-        <!-- Profil für Chat MainWindow -->
+        <!-- Profil für Admin Panel App -->
         <profile>
-            <id>chat-main</id>
+            <id>jfx-hello</id>
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
-                <main.class>at.cgsit.chatsrv.ui.ChatMainWindow</main.class>
+                <main.class>at.cgsit.jfxintro.ahello.HelloFXApp</main.class>
+            </properties>
+        </profile>
+        <!-- at.cgsit.a_jfxintro.elements -->
+        <profile>
+            <id>all-elements</id>
+            <properties>
+                <main.class>at.cgsit.jfxintro.elements.HelloFXAllControlsDemo</main.class>
+            </properties>
+        </profile>
+        <!-- at.cgsit.a_jfxintro.grid -->
+        <profile>
+            <id>jfx-hello-grid</id>
+            <properties>
+                <main.class>at.cgsit.jfxintro.grid.HelloGridApp</main.class>
+            </properties>
+        </profile>
+        <profile>
+            <id>jfx-drag-and-drop</id>
+            <properties>
+                <main.class>at.cgsit.jfxintro.draganddrop.DragDropLabelsApp</main.class>
             </properties>
         </profile>
     </profiles>

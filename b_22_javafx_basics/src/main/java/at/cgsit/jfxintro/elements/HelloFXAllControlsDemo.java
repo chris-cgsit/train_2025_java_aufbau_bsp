@@ -1,4 +1,4 @@
-package at.cgsit.a_jfxintro.elements;
+package at.cgsit.jfxintro.elements;
 
 import javafx.application.Application;
 import javafx.geometry.Insets;

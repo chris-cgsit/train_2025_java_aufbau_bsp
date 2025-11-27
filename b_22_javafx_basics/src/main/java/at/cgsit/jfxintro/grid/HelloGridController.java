@@ -1,4 +1,4 @@
-package at.cgsit.a_jfxintro.grid;
+package at.cgsit.jfxintro.grid;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;

@@ -1,7 +1,7 @@
 package at.cgsit.chess;
 
 /**
- * Repräsentiert eine Schachfigur (Typ + Farbe).
+ * Repraesentiert eine Schachfigur (Typ + Farbe).
  * Liefert Hilfsfunktionen für PNG-Dateiname & Debug-Buchstaben.
  */
 public record Piece(PieceType type, PieceColor color) {

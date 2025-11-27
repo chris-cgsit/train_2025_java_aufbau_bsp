@@ -51,6 +51,9 @@
         <!-- use it if multiple examples are used -->
         <profile>
             <id>person-main</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
             <properties>
                 <main.class>at.cgsit.a_jfxintro.person.HelloFxPersonApp</main.class>
             </properties>
