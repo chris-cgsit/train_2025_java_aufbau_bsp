@@ -1,6 +1,7 @@
 package at.cgsit.chatsrv.ui;
 
 import javafx.application.Platform;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -64,10 +65,12 @@ public class ChatMainController {
         // Init messages
         messagesListView.getItems().addAll(
                 "[System] Welcome to the Lobby!",
-                "Chris: Hallo zusammen 👋",
+                "Chris: Hallo zusammen ",
                 "Alex: Servus Chris, läuft der Server schon auf AWS?",
-                "Chris: Noch lokal, aber bald 😉"
+                "Chris: Noch lokal, aber bald "
         );
+
+
     }
 
     @FXML
@@ -90,7 +93,27 @@ public class ChatMainController {
         System.out.println("SEND: " + text);
 
         messageInputField.clear();
+
+        trimMessages();
     }
+
+    private static final int MAX_MESSAGES = 10;
+
+    private void trimMessages() {
+        ObservableList<String> items = messagesListView.getItems();
+
+        if (items.size() > MAX_MESSAGES) {
+            // zb. 20 messages drinnen minus 10 .. dann lsöchen wir 10
+            int removeCount = items.size() - MAX_MESSAGES;
+
+            // direkt von LIST API .. generell
+            items.subList(0, removeCount);
+            // hilfs mehtode von jfx
+
+            items.remove(0, removeCount);  // remove first N (older) elements
+        }
+    }
+
 
   @FXML
   private void onRoomListClicked(MouseEvent event) {
