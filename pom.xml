@@ -44,6 +44,7 @@
         <module>b_25_javafx_chat_code</module>
         <module>b_26_javafx_chat_fxml</module>
         <module>b_28_javafx_mvc_person</module>
+        <module>q_10_chess</module>
     </modules>
 
     <dependencyManagement>

@@ -1,0 +1,25 @@
+/* --- CHESSBOARD COLORS --- */
+.light-square {
+    -fx-background-color: #f0d9b5;
+    -fx-border-color: black;
+    -fx-border-width: 1;
+}
+
+.dark-square {
+    -fx-background-color: #b58863;
+    -fx-border-color: black;
+    -fx-border-width: 1;
+}
+
+.border-square {
+    -fx-background-color: #333333;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-border-color: black;
+    -fx-border-width: 1;
+}
+
+/* Hervorhebung beim Drag&Drop */
+.drag-target {
+    -fx-opacity: 0.7;
+}
