@@ -120,9 +120,9 @@ public class ChatMainWindow extends Application {
         ListView<String> messagesList = new ListView<>();
         messagesList.getItems().addAll(
                 "[System] Welcome to the Lobby!",
-                "Chris: Hallo zusammen 👋",
+                "Chris: Hallo zusammen ",
                 "Alex: Servus Chris, läuft der Server schon auf AWS?",
-                "Chris: Noch lokal, aber bald 😉"
+                "Chris: Noch lokal, aber bald "
         );
 
         // Optional: allow wrapping with cellFactory later
