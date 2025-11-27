@@ -1,20 +1,16 @@
 package at.cgsit.chess;
 
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.control.Label;
-
-import java.util.Map;
 
 /**
- * Lädt PNG/SVG Figuren aus dem Resource-Verzeichnis
- * und setzt sie an die entsprechenden Schachfelder (GUI).
+ * Lädt Figuren-Bilder und platziert Piece-Objekte + Images aufs Brett.
  */
 public class ChessPieceLoader {
 
     private final ChessBoardBuilder board;
     private final ChessGameState state;
-
     public static final int PIECE_SIZE = 48;
 
     public ChessPieceLoader(ChessBoardBuilder board, ChessGameState state) {
@@ -22,51 +18,52 @@ public class ChessPieceLoader {
         this.state = state;
     }
 
-    /** PNG laden */
     private Image load(String fileName) {
         return new Image(getClass().getResourceAsStream("/chess/" + fileName));
     }
 
-    /** Figur auf Brett & in GameState setzen */
-    private void place(String coord, String fileName) {
-        Image image = load(fileName);
-        ImageView view = new ImageView(image);
+    private void place(String coord, PieceType type, PieceColor color) {
+        Piece piece = new Piece(type, color);
+
+        Image img = load(piece.fileName());
+        ImageView view = new ImageView(img);
         view.setFitWidth(PIECE_SIZE);
         view.setFitHeight(PIECE_SIZE);
 
-        Label target = board.getSquare(coord);
-        target.setGraphic(view);
+        Label field = board.getSquare(coord);
+        field.setGraphic(view);
 
-        state.setPiece(coord, fileName);
+        state.setPiece(coord, piece);
     }
 
-    /** Anfangsstellung aller Figuren */
     public void loadInitialPosition() {
-        String[] whitePieces = {
-                "a1:white_rook.png", "b1:white_knight.png", "c1:white_bishop.png",
-                "d1:white_queen.png", "e1:white_king.png", "f1:white_bishop.png",
-                "g1:white_knight.png", "h1:white_rook.png"
-        };
-        String[] blackPieces = {
-                "a8:black_rook.png", "b8:black_knight.png", "c8:black_bishop.png",
-                "d8:black_queen.png", "e8:black_king.png", "f8:black_bishop.png",
-                "g8:black_knight.png", "h8:black_rook.png"
-        };
-
-        // Bauern setzen
+        // Weiße Bauern
         for (char f = 'a'; f <= 'h'; f++) {
-            place(f + "2", "white_pawn.png");
-            place(f + "7", "black_pawn.png");
+            place(f + "2", PieceType.PAWN, PieceColor.WHITE);
+        }
+        // Schwarze Bauern
+        for (char f = 'a'; f <= 'h'; f++) {
+            place(f + "7", PieceType.PAWN, PieceColor.BLACK);
         }
 
-        // Hauptfiguren
-        for (String def : whitePieces) {
-            String[] arr = def.split(":");
-            place(arr[0], arr[1]);
-        }
-        for (String def : blackPieces) {
-            String[] arr = def.split(":");
-            place(arr[0], arr[1]);
-        }
+        // Weiß: Hauptfiguren
+        place("a1", PieceType.ROOK,   PieceColor.WHITE);
+        place("b1", PieceType.KNIGHT, PieceColor.WHITE);
+        place("c1", PieceType.BISHOP, PieceColor.WHITE);
+        place("d1", PieceType.QUEEN,  PieceColor.WHITE);
+        place("e1", PieceType.KING,   PieceColor.WHITE);
+        place("f1", PieceType.BISHOP, PieceColor.WHITE);
+        place("g1", PieceType.KNIGHT, PieceColor.WHITE);
+        place("h1", PieceType.ROOK,   PieceColor.WHITE);
+
+        // Schwarz: Hauptfiguren
+        place("a8", PieceType.ROOK,   PieceColor.BLACK);
+        place("b8", PieceType.KNIGHT, PieceColor.BLACK);
+        place("c8", PieceType.BISHOP, PieceColor.BLACK);
+        place("d8", PieceType.QUEEN,  PieceColor.BLACK);
+        place("e8", PieceType.KING,   PieceColor.BLACK);
+        place("f8", PieceType.BISHOP, PieceColor.BLACK);
+        place("g8", PieceType.KNIGHT, PieceColor.BLACK);
+        place("h8", PieceType.ROOK,   PieceColor.BLACK);
     }
 }
