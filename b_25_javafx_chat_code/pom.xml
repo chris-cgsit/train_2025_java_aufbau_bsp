@@ -47,7 +47,14 @@
     </dependencies>
 
     <profiles>
-        <!-- at.cgsit.a_jfxintro.person. -->
+        <!-- at.cgsit.a_jfxintro.elements -->
+        <profile>
+            <id>all-elements</id>
+            <properties>
+                <main.class>at.cgsit.a_jfxintro.elements.HelloFXAllControlsDemo</main.class>
+            </properties>
+        </profile>
+
         <!-- Profil für Chat MainWindow -->
         <profile>
             <id>chat-main</id>
