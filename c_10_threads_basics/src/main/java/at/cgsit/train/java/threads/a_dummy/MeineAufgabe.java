@@ -1,4 +1,4 @@
-package at.cgsit.train.java.threads;
+package at.cgsit.train.java.threads.a_dummy;
 
 class MeineAufgabe implements Runnable {
     public void run() {
