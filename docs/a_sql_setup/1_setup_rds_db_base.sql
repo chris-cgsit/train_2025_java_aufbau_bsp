@@ -1,0 +1,39 @@
+-- ============================================
+-- TEIL 1: ALS MASTER-USER IN DB "postgres"
+-- (z.B. masteruser, postgres)
+-- ============================================
+-- 1) User anlegen
+CREATE USER trainer
+    WITH PASSWORD 'xxxxxx';
+
+CREATE USER student_elisabeth
+    WITH PASSWORD 'xxxxxx';
+
+CREATE USER student_susi
+    WITH PASSWORD 'xxxxxx';
+
+-- 2) Datenbanken anlegen
+-- Owner bleibt der Master-User (RDS-Standard),
+-- NICHT OWNER trainer, das würde auf RDS scheitern.
+CREATE DATABASE trainerdb;
+CREATE DATABASE java_training_elisabeth;
+CREATE DATABASE java_training_susi;
+
+-- 3) Rechte auf Datenbankebene vergeben
+
+-- Trainer-DB (nur Trainer)
+GRANT ALL PRIVILEGES ON DATABASE trainerdb
+    TO trainer;
+
+-- DB für Elisabeth (Trainer + Elisabeth)
+GRANT ALL PRIVILEGES ON DATABASE java_training_elisabeth
+    TO trainer;
+GRANT ALL PRIVILEGES ON DATABASE java_training_elisabeth
+    TO student_elisabeth;
+
+-- DB für Susi (Trainer + Susi)
+GRANT ALL PRIVILEGES ON DATABASE java_training_susi
+    TO trainer;
+GRANT ALL PRIVILEGES ON DATABASE java_training_susi
+    TO student_susi;
+
