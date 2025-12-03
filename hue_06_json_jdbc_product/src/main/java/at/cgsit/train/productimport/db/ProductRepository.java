@@ -51,7 +51,6 @@ public class ProductRepository {
             ps.setString(2, product.getName());
             ps.setBigDecimal(3, product.getPrice());
             ps.setBoolean(4, product.isActive());
-
             ps.executeUpdate();
         }
     }
