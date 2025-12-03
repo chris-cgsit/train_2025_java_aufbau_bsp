@@ -12,70 +12,70 @@ import java.sql.SQLException;
 import java.util.List;
 
 /**
-* Service, der den Import-Prozess orchestriert:
-* - JSON-Datei einlesen
-* - DB-Verbindung öffnen
-* - Produkte speichern
-*/
+ * Service, der den Import-Prozess orchestriert:
+ * - JSON-Datei einlesen
+ * - DB-Verbindung öffnen
+ * - Produkte speichern
+ */
 class ImportService implements AppService {
 
 
-private final DatabaseConnectionFactory connectionFactory;
-private final ProductFileImporter fileImporter;
+    private final DatabaseConnectionFactory connectionFactory;
+    private final ProductFileImporter fileImporter;
 
 
-public ImportService() {
-this.connectionFactory = new DatabaseConnectionFactory();
-this.fileImporter = new ProductFileImporter();
-}
+    public ImportService() {
+        this.connectionFactory = new DatabaseConnectionFactory();
+        this.fileImporter = new ProductFileImporter();
+    }
 
 
-// Für Tests/Erweiterungen
-public ImportService(DatabaseConnectionFactory connectionFactory, ProductFileImporter fileImporter) {
-this.connectionFactory = connectionFactory;
-this.fileImporter = fileImporter;
-}
+    // Für Tests/Erweiterungen
+    public ImportService(DatabaseConnectionFactory connectionFactory, ProductFileImporter fileImporter) {
+        this.connectionFactory = connectionFactory;
+        this.fileImporter = fileImporter;
+    }
 
 
-@Override
-public void execute(AppConfig config) {
-System.out.println("=== ImportService gestartet ===");
-System.out.println("Konfiguration: " + config);
+    @Override
+    public void execute(AppConfig config) {
+        System.out.println("=== ImportService gestartet ===");
+        System.out.println("Konfiguration: " + config);
 
 
-if (config.inputFile() == null || config.inputFile().isBlank()) {
-System.err.println("Fehler: --input=<datei> ist für mode=import erforderlich.");
-return;
-}
+        if (config.inputFile() == null || config.inputFile().isBlank()) {
+            System.err.println("Fehler: --input=<datei> ist für mode=import erforderlich.");
+            return;
+        }
 
 
-Path file = Path.of(config.inputFile());
+        Path file = Path.of(config.inputFile());
 
 
-try (Connection conn = connectionFactory.createConnection(config)) {
-ProductRepository repository = new ProductRepository(conn);
+        try (Connection conn = connectionFactory.createConnection(config)) {
+            ProductRepository repository = new ProductRepository(conn);
 
 
 // 1. JSON einlesen
-List<Product> products = fileImporter.readProducts(file);
-System.out.println("Es wurden " + products.size() + " Produkte aus der Datei gelesen.");
+            List<Product> products = fileImporter.readProducts(file);
+            System.out.println("Es wurden " + products.size() + " Produkte aus der Datei gelesen.");
 
 
 // 2. In DB speichern
-repository.insertAll(products);
-System.out.println("Produkte wurden in die Datenbank importiert.");
+            repository.insertAll(products);
+            System.out.println("Produkte wurden in die Datenbank importiert.");
 
 
 // Optional: Transaktion manuell steuern, falls AutoCommit=false
 // conn.commit();
 
 
-} catch (SQLException e) {
-System.err.println("Datenbankfehler beim Import: " + e.getMessage());
-e.printStackTrace(System.err);
-} catch (RuntimeException e) {
-System.err.println("Fehler beim Import: " + e.getMessage());
-e.printStackTrace(System.err);
-}
-}
+        } catch (SQLException e) {
+            System.err.println("Datenbankfehler beim Import: " + e.getMessage());
+            e.printStackTrace(System.err);
+        } catch (RuntimeException e) {
+            System.err.println("Fehler beim Import: " + e.getMessage());
+            e.printStackTrace(System.err);
+        }
+    }
 }

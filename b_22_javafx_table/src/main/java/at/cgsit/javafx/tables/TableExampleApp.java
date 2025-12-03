@@ -11,12 +11,15 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
+import java.util.Random;
+
 public class TableExampleApp extends Application {
 
     private final TableView<PersonModel> table = new TableView<>();
     private final ObservableList<PersonModel> data = FXCollections.observableArrayList();
 
     private Integer lastMaxId;
+    private static final Random RANDOM = new Random();
 
     @Override
     public void start(Stage primaryStage) {
@@ -73,7 +76,15 @@ public class TableExampleApp extends Application {
     private void showSelectedPerson() {
 
         lastMaxId += 1;
-        PersonModel next = new PersonModel(lastMaxId, "NEU", "Neuer", 22);
+        int age = RANDOM.nextInt(53) + 18;   // 18–71
+
+        // beispiel für random string .. dann x characters raussuchen .. für jeden namen
+        // zuerst den buchstaben bestimmen. dann x davon machen
+        String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+
+        PersonModel next
+                = new PersonModel(lastMaxId, "NEU", "Neuer", age);
+
         data.add(next);
 
         PersonModel p = table.getSelectionModel().getSelectedItem();
@@ -90,8 +101,11 @@ public class TableExampleApp extends Application {
     }
 
     private void showAlert(String msg) {
+
         Alert a = new Alert(Alert.AlertType.INFORMATION, msg, ButtonType.OK);
         a.showAndWait();
+
+
     }
 
     public static void main(String[] args) {

@@ -14,8 +14,10 @@ public class DragDropLabelsApp extends Application {
 
     @Override
     public void start(Stage stage) {
+
         Label labelA = new Label("A: Zieh mich");
         Label labelB = new Label("B: Oder mich");
+
         styleNormal(labelA);
         styleNormal(labelB);
 
@@ -32,6 +34,11 @@ public class DragDropLabelsApp extends Application {
     }
 
     private void enableDragAndDrop(Label label) {
+
+        label.setOnMouseClicked( event -> {
+            System.out.println("clicked");
+        });
+
         // Drag starten (Quelle)
         label.setOnDragDetected(event -> {
             Dragboard db = label.startDragAndDrop(TransferMode.MOVE);
@@ -39,7 +46,6 @@ public class DragDropLabelsApp extends Application {
             ClipboardContent content = new ClipboardContent();
             content.putString(label.getText());
             db.setContent(content);
-
             event.consume();
         });
 

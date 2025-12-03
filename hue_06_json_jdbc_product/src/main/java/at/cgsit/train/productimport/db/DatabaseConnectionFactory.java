@@ -27,6 +27,12 @@ public class DatabaseConnectionFactory {
       String user = config.dbUser();
       String password = config.dbPassword();
 
+      // wir gehen davon aus, dass der configuraiton manager nur gültige configs bereit stellt oder excpetion
+      // geworfen hätte
+      if(url==null){
+          throw new NullPointerException("url must be specfifid");
+      }
+
 
         // JDBC 4 lädt den Treiber i.d.R. automatisch über SPI.
         // Für H2/Postgres ist kein explizites Class.forName(...) mehr nötig.

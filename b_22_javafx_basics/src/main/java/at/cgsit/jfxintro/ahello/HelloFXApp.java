@@ -33,11 +33,12 @@ public class HelloFXApp extends Application {
         ));
 
         // BILD . Image mit ImageView
-        Image avatarImg = new Image(getClass().getResourceAsStream("/images/logo.jpg"));
-        ImageView avatar = new ImageView(avatarImg);
-        avatar.setFitHeight(80);
-        avatar.setPreserveRatio(true);
-        root.getChildren().add(avatar);
+        // TODO fix it .. image wurde nicht eingecheckt
+//        Image avatarImg = new Image(getClass().getResourceAsStream("/images/logo.jpg"));
+//        ImageView avatar = new ImageView(avatarImg);
+//        avatar.setFitHeight(80);
+//        avatar.setPreserveRatio(true);
+//        root.getChildren().add(avatar);
 
 
         // label2
