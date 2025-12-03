@@ -48,6 +48,7 @@
         <module>b_22_javafx_basics</module>
         <module>c_10_threads_basics</module>
         <module>b_22_javafx_table</module>
+        <module>c_20_job_framework</module>
     </modules>
 
     <dependencyManagement>
