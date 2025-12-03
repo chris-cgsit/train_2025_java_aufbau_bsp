@@ -7,6 +7,10 @@ public class CompletableFutureDemo {
 
     public static void main(String[] args) {
 
+         // CompletableFuture-Version
+         // braucht keinen eigenen ExecutorService (nutzt intern ForkJoinPool.commonPool)
+         // .join() statt get()  das ist kompakter
+
         System.out.println("Starte parallele Tasks ...");
 
         // Drei parallele Arbeiten
@@ -25,7 +29,7 @@ public class CompletableFutureDemo {
             System.out.println("Task 3 fertig");
         });
 
-        // Auf alle warten
+        // Auf alle warten mit .join
         CompletableFuture.allOf(future1, future2, future3).join();
 
         System.out.println("Alle Tasks erledigt!");
