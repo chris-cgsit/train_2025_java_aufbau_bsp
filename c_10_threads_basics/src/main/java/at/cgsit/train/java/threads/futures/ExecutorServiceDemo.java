@@ -17,6 +17,8 @@ public class ExecutorServiceDemo {
 
         System.out.println("Starte parallele Tasks ...");
 
+        // ExecutorService ist ein Abstraktions-Layer über der direkten Thread-Erzeugung.
+        // Ein ExecutorService erzeugt Threads einmal und benutzt sie danach immer wieder.
         // Executor mit 3 Threads (kann auch Virtual Threads sein)
         // ExecutorService executor = Executors.newFixedThreadPool(3);
         ExecutorService executor = Executors.newVirtualThreadPerTaskExecutor();
