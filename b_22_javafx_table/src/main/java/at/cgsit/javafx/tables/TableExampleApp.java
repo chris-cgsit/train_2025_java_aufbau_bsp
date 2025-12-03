@@ -16,6 +16,8 @@ public class TableExampleApp extends Application {
     private final TableView<PersonModel> table = new TableView<>();
     private final ObservableList<PersonModel> data = FXCollections.observableArrayList();
 
+    private Integer lastMaxId;
+
     @Override
     public void start(Stage primaryStage) {
 
@@ -63,10 +65,17 @@ public class TableExampleApp extends Application {
             new PersonModel(3, "Julia", "Schmidt", 41),
             new PersonModel(4, "Susi", "Lehner", 22)
         );
+
+        lastMaxId = 4;
     }
 
     // ---- OK Button ----
     private void showSelectedPerson() {
+
+        lastMaxId += 1;
+        PersonModel next = new PersonModel(lastMaxId, "NEU", "Neuer", 22);
+        data.add(next);
+
         PersonModel p = table.getSelectionModel().getSelectedItem();
 
         if (p == null) {
@@ -77,6 +86,7 @@ public class TableExampleApp extends Application {
         showAlert("Gewählte Person:\n" +
                 p.getFirstName() + " " + p.getLastName() +
                 " (Alter: " + p.getAge() + ")");
+
     }
 
     private void showAlert(String msg) {
