@@ -31,7 +31,8 @@ public class VirtualThreadCoordinatorDemo {
             System.out.println("Main: Starte Tasks als Virtual Threads...");
 
             List<Future<?>> futures = new ArrayList<>();
-            futures.add(executor.submit(downloadTask));
+            Future<?> downloadFuture = executor.submit(downloadTask);
+            futures.add(downloadFuture);
             futures.add(executor.submit(backupTask));
             futures.add(executor.submit(loggingTask));
 

@@ -22,7 +22,7 @@ public class MeinThreadMain extends Thread {
 
         for (int s = 1; s <= laufzeitSekunden; s++) {
             try {
-                Thread.sleep(1000);  // wartet 1 Sekunde
+                Thread.sleep(2000);  // wartet 1 Sekunde
             } catch (InterruptedException e) {
                 System.out.printf("[%s] Thread wurde unterbrochen!%n", getName());
                 return;
@@ -30,6 +30,7 @@ public class MeinThreadMain extends Thread {
 
             System.out.printf("[%s] Fortschritt: %d / %d Sekunden%n",
                     getName(), s, laufzeitSekunden);
+            this.subMethdo();;
         }
 
         long dauer = System.currentTimeMillis() - start;
@@ -37,10 +38,16 @@ public class MeinThreadMain extends Thread {
                 getName(), dauer / 1000.0);
     }
 
+    private void subMethdo() {
+        Integer d = 3;
+
+        System.out.println("sdfasdfsdf");
+    }
+
     // Direkt startbar:
     public static void main(String[] args) {
         // 2–3 Minuten = 120–180 Sekunden → wir nehmen 150 Sekunden
-        MeinThreadMain t = new MeinThreadMain("MeinEinfacherThread", 150);
+        MeinThreadMain t = new MeinThreadMain("MeinEinfacherThread", 1500);
 
         System.out.println("Main: Starte Thread...");
         t.start();
