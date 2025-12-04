@@ -9,6 +9,18 @@ import java.time.ZoneId;
  */
 public class MyTaskKernLogik {
 
+    public void executeLoop() {
+        Thread myThread = Thread.currentThread();
+        for(int i = 0; i < 10; i++) {
+            this.execute( myThread.getName() + "@" + myThread);
+            try {
+                Thread.sleep(1000 * 2 );
+            } catch (InterruptedException e) {
+
+            }
+        }
+    }
+
     public void execute(String name) {
 
         LocalDateTime localDateTime = Instant.now().atZone(ZoneId.systemDefault()).toLocalDateTime();
