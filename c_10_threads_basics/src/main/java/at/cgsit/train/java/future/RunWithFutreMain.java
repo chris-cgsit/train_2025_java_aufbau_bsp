@@ -25,7 +25,12 @@ public class RunWithFutreMain {
             futures.add(submitted);
         }
 
+        // loop check if done
+        // wir könnten periodisch hier nachsehen ob dieses oder alle schon erledigt sind
+        boolean done = futures.get(0).isDone();
+
         // warten bis alle Tasks fertig sind
+        // hier ist es egal ob der Thread ein virueller oder echter Thread ist
         for (Future<?> f : futures) {
             try {
                 f.get();

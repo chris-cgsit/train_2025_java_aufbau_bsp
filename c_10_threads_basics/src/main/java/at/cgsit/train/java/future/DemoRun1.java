@@ -6,12 +6,11 @@ public class DemoRun1 implements Runnable {
     public void run() {
         long threadId = Thread.currentThread().threadId();
         System.out.printf("Task with thread id: %s started \n", threadId);
-        sleep(4000);
+        this.msleep(5000);
         System.out.printf("Task with thread id: %s ended \n", threadId);
-
     }
 
-    private void sleep(long ms) {
+    private void msleep(long ms) {
         try {
             Thread.sleep(ms);
         } catch (InterruptedException e) {
