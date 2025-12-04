@@ -13,6 +13,11 @@ public class ThreadMainWithRunnable3 {
         Thread thread2 = new Thread(() -> new MyTaskKernLogik().executeLoop() );
         Thread thread3 = new Thread(() -> new MyTaskKernLogik().executeLoop() );
 
+        // lambda version mit Runnable variable
+        Runnable job = () -> System.out.println("Task läuft yet another");
+        new Thread(job).start();
+
+
         // parallel weg starten als thread
         thread.start();
         thread2.start();
