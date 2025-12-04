@@ -8,12 +8,16 @@ public class ThreadMainWithRunnable2 {
 
     static void main(String[] args) throws InterruptedException {
 
-        // das hier ist IMHO nicht sinnvoll. Denn im programm auflauf von main
-        // hätten wir hier jetzt den Ablauf und die Methoden Implementierung von unserem Run
-        // direkt enthalten, das ist eher verwirrend.
-        // besser sowas nur verwenden, wenn das run bzw generell die Funktion nur auferufen
-        // wird oder und einfach ist .. also wenn mehr code, dann eigene Runnable
-        // Klasse implementieren.
+        /*
+         das hier ist IMHO nicht sinnvoll. Denn im programm auflauf von main
+         hätten wir hier jetzt den Ablauf und die Methoden Implementierung von unserem Run
+         direkt enthalten, das ist eher verwirrend.
+         besser sowas nur verwenden, wenn das run bzw generell die Funktion nur auferufen
+         wird oder und einfach ist .. also wenn mehr code, dann eigene Runnable
+         Klasse implementieren.
+         IntellJ würde her auch refactoring vorschlagen in eigene Methode get thread,
+         was sinn machen könnte.
+        */
         Runnable myRunnable = new Runnable() {
             @Override
             public void run() {
