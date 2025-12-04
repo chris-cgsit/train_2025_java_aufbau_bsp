@@ -13,6 +13,7 @@ public class ThreadMainWithRunnable {
 
         // dieses Runnable Object kann ich dann dem Thread übergeben als auszuführendes Element
         // via run methode
+
         Thread thread = new Thread(myTask, "MY Custom Thread");
 
         // parallel weg starten als thread

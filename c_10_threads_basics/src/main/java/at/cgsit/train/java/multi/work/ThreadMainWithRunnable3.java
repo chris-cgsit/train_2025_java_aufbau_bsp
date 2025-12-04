@@ -9,6 +9,12 @@ public class ThreadMainWithRunnable3 {
     static void main(String[] args) throws InterruptedException {
 
         // echten Sinn macht die Parallelisierung, wenn mehrere Dinge gleichzeitig macht:
+
+        new Thread(() -> {
+            System.out.println("df");
+            System.out.println("dfdf");
+        });
+
         Thread thread = new Thread(() -> new MyTaskKernLogik().executeLoop() );
         Thread thread2 = new Thread(() -> new MyTaskKernLogik().executeLoop() );
         Thread thread3 = new Thread(() -> new MyTaskKernLogik().executeLoop() );
@@ -16,7 +22,6 @@ public class ThreadMainWithRunnable3 {
         // lambda version mit Runnable variable
         Runnable job = () -> System.out.println("Task läuft yet another");
         new Thread(job).start();
-
 
         // parallel weg starten als thread
         thread.start();

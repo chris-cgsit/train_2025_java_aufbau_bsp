@@ -2,10 +2,11 @@ package at.cgsit.train.java.multi.work;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 public class RunWithExecutorPoolMain {
 
-    static void main(String[] args) {
+    static void main(String[] args) throws InterruptedException {
 
         /*
          Executors ist wieder eine Klasse die mit statischenb Methoden als
@@ -32,6 +33,9 @@ public class RunWithExecutorPoolMain {
                 System.out.printf("runn with executor serverice: %s@%s \n", name, threadId );
             });
         }
+
+        // Blocks until all tasks have completed execution after a shutdown request, or the timeout occurs
+        excecSrvce.awaitTermination(1, TimeUnit.HOURS);
 
         System.out.println("main methode after ececute");
 
