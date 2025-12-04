@@ -1,8 +1,7 @@
 package at.cgsit.train.java.multi.work;
 
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
+import java.util.Random;
+import java.util.concurrent.*;
 
 public class RunWithExecutorPoolMain {
 
@@ -16,22 +15,49 @@ public class RunWithExecutorPoolMain {
          dann kann man die z.b. namen der threads im pool bestimmen
         */
 
-        // ExecutorService excecSrvce = Executors.newFixedThreadPool(5);
+        ExecutorService excecSrvce = Executors.newFixedThreadPool(5);
 
         /*
          virtuelle threads werden von der JVM aus einem JVM Thread pool bedient
          der so groß ist wie java das bestimmt, auch aufgrund der Harware darunter
          limitierung auf x virutelle threads ist hier seitens platform unerwünscht
         */
-        ExecutorService excecSrvce = Executors.newVirtualThreadPerTaskExecutor();
+        // ExecutorService excecSrvce = Executors.newVirtualThreadPerTaskExecutor();
 
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 50; i++) {
             // execute methode is fire und forget. also start und laufen lassen
             excecSrvce.execute(() -> {
                 String name = Thread.currentThread().getName();
                 long threadId = Thread.currentThread().threadId();
-                System.out.printf("runn with executor serverice: %s@%s \n", name, threadId );
+                try {
+                    Random random = new Random();
+                    int randomSleepDuration = random.nextInt(3000) + 1000;
+                    Thread.sleep(randomSleepDuration);
+                } catch (InterruptedException e) { }
+                System.out.printf("run with executor servíce: %s@%s \n", name, threadId );
             });
+        }
+
+        ThreadPoolExecutor pool = (ThreadPoolExecutor) excecSrvce;
+        // Die Methode, die die Anzahl der aktiv laufenden Threads liefert
+        System.out.println("Aktive Threads: " + pool.getActiveCount());
+
+        excecSrvce.shutdown();
+
+        try {
+            // nach dem shutdown darf man keine elemente / tasks mehr in den pool zur verarbeitung einschleusen
+            excecSrvce.execute(() -> System.out.println("after shutdown"));
+        } catch (RejectedExecutionException ex) {
+            System.out.println( "as exprected" + ex.getMessage());
+        }
+
+        while (true) {
+            BlockingQueue<Runnable> queue = pool.getQueue();
+            System.out.printf("tasks noch offen zur Abarbeitung: %s \n", queue.size());
+            Thread.sleep(250);
+            if(queue.isEmpty()) {
+                break;
+            }
         }
 
         // Blocks until all tasks have completed execution after a shutdown request, or the timeout occurs
