@@ -25,7 +25,16 @@ public class QueueWorkerDemo {
 
         // Jobs erzeugen (Producer)
         for (int i = 0; i < ANZAHL_JOBS; i++) {
+            // add führt zu IllegalStateException: Queue full wenn zuviel
             queue.add(new Job("job-" + i, "payload-" + i));
+            // put wartet bis
+            // Wenn die Queue voll ist → der aufrufende Thread blockiert, bis wieder Platz ist
+            // queue.put(job);
+
+            // non-blocking, mit Rückgabewert
+            // boolean ok = queue.offer(job);
+            // wenn platz ist ok sonst false
+
         }
 
         try (ExecutorService executor = Executors.newVirtualThreadPerTaskExecutor()) {
