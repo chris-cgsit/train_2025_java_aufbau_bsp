@@ -13,7 +13,7 @@ import java.util.List;
 /**
 * Service, der die in der Datenbank gespeicherten Produkte listet.
 */
-class ListService implements AppService {
+public class ListService implements AppService {
 
 
 private final DatabaseConnectionFactory connectionFactory;

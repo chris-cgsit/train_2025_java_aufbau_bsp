@@ -17,7 +17,7 @@ import java.util.List;
  * - DB-Verbindung öffnen
  * - Produkte speichern
  */
-class ImportService implements AppService {
+public class ImportService implements AppService {
 
 
     private final DatabaseConnectionFactory connectionFactory;
