@@ -9,14 +9,19 @@ public class ExecutorDemo {
     // Holen wir uns die Anzahl der verfügbaren Prozessoren/Kerne
     private static final int NUM_CORES = Runtime.getRuntime().availableProcessors();
     // Verwenden wir die Anzahl der Kerne für den FixedThreadPool, um maximale CPU-Auslastung zu zeigen
-    private static final int POOL_SIZE = NUM_CORES; 
+    private static final int POOL_SIZE = NUM_CORES / 2 ;
     
     // Gesamtanzahl der Tasks für beide Szenarien
-    private static final int NUM_TASKS = 4; 
+    private static final int NUM_TASKS = NUM_CORES ;
 
     public static void main(String[] args) throws InterruptedException {
         System.out.println("Verfügbare CPU-Kerne: " + NUM_CORES);
-        
+
+        //System.out.println("\n=== 1. WARMUP start ===");
+        //runSingleThreaded();
+        //System.out.println("\n=== 1. WARMUP end ===");
+
+
         // --- Szenario 1: Single-Thread-Ausführung ---
         System.out.println("\n=== 1. Single-Thread-Ausführung (Sequenziell) ===");
         runSingleThreaded();
@@ -28,6 +33,9 @@ public class ExecutorDemo {
         System.out.println("\n=== 2. Thread-Pool-Ausführung (Parallel) ===");
         System.out.println("Pool-Größe = " + POOL_SIZE + " Threads.");
         runThreadPool();
+
+        System.out.println("\n=== END  ===");
+
     }
 
     /**
@@ -39,7 +47,7 @@ public class ExecutorDemo {
         // Erzeugt einen Executor mit nur einem Thread
         ExecutorService singleExecutor = Executors.newSingleThreadExecutor(); 
         
-        for (int i = 1; i <= NUM_TASKS; i++) {
+        for (int i = 1; i <= 2; i++) {
             singleExecutor.submit(new CpuIntensiveTask("SingleTask-" + i));
         }
         
@@ -77,7 +85,7 @@ public class ExecutorDemo {
         executor.shutdown(); // Startet das Herunterfahren: keine neuen Tasks mehr angenommen
         try {
             // Wartet maximal 60 Sekunden auf den Abschluss aller Tasks
-            if (!executor.awaitTermination(60, TimeUnit.SECONDS)) { 
+            if (!executor.awaitTermination(20, TimeUnit.MINUTES)) {
                 executor.shutdownNow(); // Erzwingt das Herunterfahren
             }
         } catch (InterruptedException ie) {
