@@ -1,13 +1,14 @@
-package at.cgsit.train.java.threads.futures;
+package at.cgsit.train.java.threads.future_callable;
 
-public class DemoRun1 implements Runnable {
+import java.util.concurrent.Callable;
 
-
+public class DemoTaskCallable implements Callable<String> {
 
     @Override
-    public void run() {
+    public String call() {
         sleep(1000);
         System.out.println("Task 1 fertig");
+        return "Ergebnis Task 1";
     }
 
     private void sleep(long ms) {

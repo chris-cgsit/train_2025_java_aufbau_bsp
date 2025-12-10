@@ -15,6 +15,8 @@ public class RunWithCompleteableFutureMain {
         // CompletableFuture<?>... cfs
         // CompletableFuture.allOf( );
 
+        // siehe auch: at.cgsit.train.java.threads.futures.CompletableFutureDemo
+
     }
 
 

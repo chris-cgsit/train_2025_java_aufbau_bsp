@@ -16,9 +16,10 @@ public class MeineAufgabeMain implements Runnable {
   // Direkt startbar:
   public static void main(String[] args) {
     // 2–3 Minuten = 120–180 Sekunden → hier: 150 Sekunden (2.5 Minuten)
-    MeineAufgabeMain aufgabe = new MeineAufgabeMain(150);
+    MeineAufgabeMain aufgabe = new MeineAufgabeMain(15);
 
     Thread t = new Thread(aufgabe, "MeineAufgabe-Thread");
+    t.setDaemon(true);
     t.start();
 
     try {

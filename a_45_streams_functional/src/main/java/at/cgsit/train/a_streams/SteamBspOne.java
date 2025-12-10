@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class SteamBspOne {
 
@@ -12,7 +13,7 @@ public class SteamBspOne {
 
     List<String> namen = List.of("Anna", "Bob", "Alexander", "Carla");
 
-    namen.stream()
+      namen.stream()
         .filter(name -> name.startsWith("A"))
         // .map(name -> name.toUpperCase())
         .map(String::toUpperCase)

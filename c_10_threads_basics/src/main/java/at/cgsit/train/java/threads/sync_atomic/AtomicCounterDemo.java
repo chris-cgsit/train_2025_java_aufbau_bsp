@@ -43,7 +43,10 @@ class SharedCounter {
     private final AtomicInteger value = new AtomicInteger(0);
 
     public void increment(String who) {
+
         int newValue = value.incrementAndGet(); // atomar!
+
         System.out.println(who + " -> Counter: " + newValue);
+
     }
 }

@@ -17,6 +17,7 @@ public class ThreadCoordinatorDemo {
         // 2–3 Minuten Gesamtlaufzeit:
         // Download & Backup je ~90s, Logging ~120s
         Runnable downloadTask = new DownloadTask(90);
+
         Runnable backupTask   = new BackupTask(90);
         Runnable loggingTask  = new LoggingTask(120);
 
