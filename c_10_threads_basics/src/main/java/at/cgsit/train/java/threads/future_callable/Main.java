@@ -8,6 +8,7 @@ public class Main {
         ExecutorService executor = Executors.newFixedThreadPool(3);
 
         Future<String> future1 = executor.submit(new DemoTaskCallable());
+
         Future<String> future2 = executor.submit(() -> {
             Thread.sleep(1500);
             System.out.println("Task 2 fertig");

@@ -9,10 +9,10 @@ public class ExecutorDemo {
     // Holen wir uns die Anzahl der verfügbaren Prozessoren/Kerne
     private static final int NUM_CORES = Runtime.getRuntime().availableProcessors();
     // Verwenden wir die Anzahl der Kerne für den FixedThreadPool, um maximale CPU-Auslastung zu zeigen
-    private static final int POOL_SIZE = NUM_CORES / 2 ;
+    private static final int POOL_SIZE = NUM_CORES /2;
     
     // Gesamtanzahl der Tasks für beide Szenarien
-    private static final int NUM_TASKS = NUM_CORES ;
+    private static final int NUM_TASKS = NUM_CORES /2 ;
 
     public static void main(String[] args) throws InterruptedException {
         System.out.println("Verfügbare CPU-Kerne: " + NUM_CORES);
@@ -24,7 +24,7 @@ public class ExecutorDemo {
 
         // --- Szenario 1: Single-Thread-Ausführung ---
         System.out.println("\n=== 1. Single-Thread-Ausführung (Sequenziell) ===");
-        runSingleThreaded();
+        // runSingleThreaded();
 
         // Füge eine Pause ein, um die Ausgabe zu trennen
         TimeUnit.SECONDS.sleep(5);
