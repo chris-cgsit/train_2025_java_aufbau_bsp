@@ -5,10 +5,15 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.util.List;
+
 public class HelloGridApp extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
+
+        List<String> raw = this.getParameters().getRaw();
+
         FXMLLoader loader = new FXMLLoader(
                 getClass().getResource("/fxml/hello-grid.fxml")
         );
@@ -19,7 +24,4 @@ public class HelloGridApp extends Application {
         stage.show();
     }
 
-    public static void main(String[] args) {
-        launch(args);
-    }
 }

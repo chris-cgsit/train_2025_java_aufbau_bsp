@@ -40,7 +40,7 @@ class SharedCounter {
 
     private int value = 0;
 
-    // ❗ KEIN synchronized → Race Conditions garantiert
+    // KEIN synchronized → Race Conditions garantiert
     public void increment(String who) {
         int temp = value;          // lesen
         temp = temp + 1;           // ändern
