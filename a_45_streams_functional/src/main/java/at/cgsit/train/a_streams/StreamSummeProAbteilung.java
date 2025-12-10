@@ -2,10 +2,12 @@ package at.cgsit.train.a_streams;
 
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class StreamSummeProAbteilung {
 
     public static void main(String[] args) {
+
 
         List<Person> personen = List.of(
             new Person("Anna", "IT", 65000),
