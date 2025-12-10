@@ -12,12 +12,17 @@ CREATE USER student_elisabeth
 CREATE USER student_susi
     WITH PASSWORD 'xxxxxx';
 
+CREATE USER student_madeha
+    WITH PASSWORD 'FAD1231dddlaZTR';
+
+
 -- 2) Datenbanken anlegen
 -- Owner bleibt der Master-User (RDS-Standard),
 -- NICHT OWNER trainer, das würde auf RDS scheitern.
 CREATE DATABASE trainerdb;
 CREATE DATABASE java_training_elisabeth;
 CREATE DATABASE java_training_susi;
+CREATE DATABASE java_training_madeha;
 
 -- 3) Rechte auf Datenbankebene vergeben
 
