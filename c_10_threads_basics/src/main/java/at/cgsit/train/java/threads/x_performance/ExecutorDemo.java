@@ -65,8 +65,11 @@ public class ExecutorDemo {
         long totalStartTime = System.currentTimeMillis();
         
         // Erzeugt einen Pool mit der Anzahl der verfügbaren CPU-Kerne
-        ExecutorService poolExecutor = Executors.newFixedThreadPool(POOL_SIZE); 
-        
+
+        ExecutorService poolExecutor = Executors.newFixedThreadPool(POOL_SIZE);
+        // Verwendet die Platform Threads der JVM im Hintergrund
+        // ExecutorService poolExecutor = Executors.newVirtualThreadPerTaskExecutor();
+
         for (int i = 1; i <= NUM_TASKS; i++) {
             poolExecutor.submit(new CpuIntensiveTask("PoolTask-" + i));
         }
