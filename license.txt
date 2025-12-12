@@ -1,2 +1,24 @@
-This work © 2023 by CGS-IT Solutions GmbH is licensed under Attribution-NonCommercial 4.0 International
+Copyright © 2025 CGS IT Solutions GmbH.
+All rights reserved.
 
+This repository, including but not limited to source code, presentation
+slides, documentation, examples, diagrams, and all accompanying materials,
+is proprietary intellectual property of CGS IT Solutions GmbH.
+
+No part of this repository may be copied, reproduced, modified, merged,
+published, distributed, sublicensed, or made publicly available, in whole
+or in part, without prior written permission from CGS IT Solutions GmbH.
+
+The materials are provided solely for educational and training purposes
+within the scope of an explicitly granted license (e.g. participation in a
+CGS IT Solutions GmbH or authorized partner training).
+
+Any use beyond the permitted scope, including commercial use, redistribution,
+or use in derivative works, is strictly prohibited.
+
+All trademarks, product names, logos, and brands are property of their
+respective owners and are used for identification and educational purposes
+only.
+
+For licensing inquiries, contact:
+CGS IT Solutions GmbH
