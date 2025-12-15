@@ -13,7 +13,8 @@ public class Main {
     list.add("Hello");
     String value = list.get(0);
 
-    list.add(42);   // Compiler-Fehler!
+
+    // list.add(42);   // Compiler-Fehler!
 
   }
 
