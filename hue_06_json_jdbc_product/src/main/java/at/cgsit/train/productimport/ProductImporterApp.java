@@ -24,7 +24,8 @@ public class ProductImporterApp {
 
     private static AppService selectService(AppConfig config) {
         return switch (config.mode().toLowerCase()) {
-            case "import" -> new ImportService();
+            // das neue case bietet so die Möglichkeit für mehrere cases und eine action
+            case "input", "import" -> new ImportService();
             case "list"   -> new ListService();
             default       -> new ListService();
         };

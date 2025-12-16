@@ -1,5 +1,7 @@
 package at.cgsit.train.productimport.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.math.BigDecimal;
 import java.time.Instant;
 
@@ -12,6 +14,7 @@ public class Product {
     private String name;
     private BigDecimal price;
     private boolean active;
+    @JsonProperty("created_at")
     private Instant createdAt;
 
     public Product() {
