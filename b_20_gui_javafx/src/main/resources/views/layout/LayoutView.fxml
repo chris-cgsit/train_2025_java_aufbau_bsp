@@ -15,6 +15,18 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.SingleSelectionModel?>
 
+<!--
+  ~  Copyright © 2025 CGS IT Solutions GmbH.
+  ~  All rights reserved.
+  ~
+  ~  This source code is proprietary intellectual property
+  ~  of CGS IT Solutions GmbH and is provided solely for use
+  ~  within licensed training programs.
+  ~
+  ~   Any copying, redistribution, modification, or use
+  ~   beyond the permitted scope is strictly prohibited.
+  -->
+
 <!--  TabPane mit beliebig vielen Tab-Child-Elementen -->
 <TabPane fx:id="tabsContent" prefWidth="400.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2"
 	fx:controller="layout.LayoutController">

@@ -3,6 +3,18 @@
 <?import javafx.scene.control.*?>
 <?import javafx.geometry.Insets?>
 
+<!--
+  ~  Copyright © 2025 CGS IT Solutions GmbH.
+  ~  All rights reserved.
+  ~
+  ~  This source code is proprietary intellectual property
+  ~  of CGS IT Solutions GmbH and is provided solely for use
+  ~  within licensed training programs.
+  ~
+  ~   Any copying, redistribution, modification, or use
+  ~   beyond the permitted scope is strictly prohibited.
+  -->
+
 <GridPane xmlns="http://javafx.com/javafx"
           xmlns:fx="http://javafx.com/fxml"
           fx:controller="a_jfxintro.grid.HelloGridController"

@@ -13,6 +13,18 @@
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.control.CheckMenuItem?>
 <?import javafx.scene.control.ContextMenu?>
+<!--
+  ~  Copyright © 2025 CGS IT Solutions GmbH.
+  ~  All rights reserved.
+  ~
+  ~  This source code is proprietary intellectual property
+  ~  of CGS IT Solutions GmbH and is provided solely for use
+  ~  within licensed training programs.
+  ~
+  ~   Any copying, redistribution, modification, or use
+  ~   beyond the permitted scope is strictly prohibited.
+  -->
+
 <BorderPane prefHeight="400.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="menu.MenuController" stylesheets="@menu.css">
     <center>

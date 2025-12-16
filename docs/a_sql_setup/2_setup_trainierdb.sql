@@ -1,3 +1,15 @@
+/*
+ *  Copyright © 2025 CGS IT Solutions GmbH.
+ *  All rights reserved.
+ *
+ *  This source code is proprietary intellectual property
+ *  of CGS IT Solutions GmbH and is provided solely for use
+ *  within licensed training programs.
+ *
+ *   Any copying, redistribution, modification, or use
+ *   beyond the permitted scope is strictly prohibited.
+ */
+
 -- ============================================
 -- TEIL 2: ALS MASTER-USER IN DB "trainerdb"
 -- (im IntelliJ-Dropdown Database = trainerdb)

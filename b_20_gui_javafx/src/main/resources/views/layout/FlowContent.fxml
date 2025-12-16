@@ -6,7 +6,19 @@
 <?import javafx.scene.text.*?>
 <?import javafx.geometry.Insets?>
 
-<!-- die Nodes werden nebeneinander angezeigt, falls kein Platz mehr ist, 
+<!--
+  ~  Copyright © 2025 CGS IT Solutions GmbH.
+  ~  All rights reserved.
+  ~
+  ~  This source code is proprietary intellectual property
+  ~  of CGS IT Solutions GmbH and is provided solely for use
+  ~  within licensed training programs.
+  ~
+  ~   Any copying, redistribution, modification, or use
+  ~   beyond the permitted scope is strictly prohibited.
+  -->
+
+<!-- die Nodes werden nebeneinander angezeigt, falls kein Platz mehr ist,
 wird eine neue Zeile begonnen -->
 <FlowPane xmlns:fx="http://javafx.com/fxml/1" hgap="10" vgap="10" id="flowPane">
 	<padding>

@@ -5,6 +5,18 @@
 <?import javafx.scene.layout.HBox?>
 <?import java.net.URL?>
 
+<!--
+  ~  Copyright © 2025 CGS IT Solutions GmbH.
+  ~  All rights reserved.
+  ~
+  ~  This source code is proprietary intellectual property
+  ~  of CGS IT Solutions GmbH and is provided solely for use
+  ~  within licensed training programs.
+  ~
+  ~   Any copying, redistribution, modification, or use
+  ~   beyond the permitted scope is strictly prohibited.
+  -->
+
 <VBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="at.cgsit.train.productimport.jfx_gui.ProductController"
       spacing="10">
