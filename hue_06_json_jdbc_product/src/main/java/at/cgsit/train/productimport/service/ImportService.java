@@ -56,18 +56,18 @@ public class ImportService implements AppService {
             ProductRepository repository = new ProductRepository(conn);
 
 
-// 1. JSON einlesen
+            // 1. JSON einlesen
             List<Product> products = fileImporter.readProducts(file);
             System.out.println("Es wurden " + products.size() + " Produkte aus der Datei gelesen.");
 
 
-// 2. In DB speichern
+            // 2. In DB speichern
             repository.insertAll(products);
             System.out.println("Produkte wurden in die Datenbank importiert.");
 
 
-// Optional: Transaktion manuell steuern, falls AutoCommit=false
-// conn.commit();
+            // Optional: Transaktion manuell steuern, falls AutoCommit=false
+            // conn.commit();
 
 
         } catch (SQLException e) {
