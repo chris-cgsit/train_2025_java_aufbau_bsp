@@ -55,6 +55,14 @@ public class ProductRepository {
         }
     }
 
+    public void deleteAllProducts() throws SQLException {
+        String deleteStatement = "DELETE from product";
+        try (PreparedStatement ps = connection.prepareStatement(deleteStatement)) {
+            ps.executeUpdate();
+        }
+    }
+
+
     /**
      * Fügt mehrere Produkte ein.
      * Für Schüler verständlich: einfach insert() mehrfach aufrufen.
@@ -146,5 +154,30 @@ public class ProductRepository {
         Instant createdAt = ts != null ? ts.toInstant() : null;
 
         return new Product(id, name, price, active, createdAt);
+    }
+
+    public Integer countNumberOfRecords() {
+        // SQL-Statement: Zählt die Zeilenanzahl
+        String countStatement = "SELECT count(*) FROM product";
+
+        // // ResultSet wird direkt im try-with-resources geöffnet
+        try (PreparedStatement ps = connection.prepareStatement(countStatement);
+             ResultSet resultSet = ps.executeQuery()) {
+
+            // 1. ZUM ERSTEN ERGEBNIS WECHSELN:
+            // Die Abfrage COUNT(*) gibt immer genau eine Zeile zurück,
+            // daher muss man zu dieser ersten Zeile wechseln
+            if (resultSet.next()) {
+                // Da COUNT(*) die erste Spalte (Index 1) des ResultSet ist,
+                // wird sie als Integer ausgelesen.
+                return resultSet.getInt(1);
+            }
+
+            // Sollte nie erreicht werden, da COUNT(*) immer 1 Zeile liefert
+            return 0;
+            } catch (SQLException e) {
+                System.out.println( "error" + e);
+                return 0;
+            }
     }
 }

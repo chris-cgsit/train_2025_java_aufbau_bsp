@@ -50,3 +50,6 @@ CREATE INDEX IF NOT EXISTS idx_product_price ON product(price);
 -- INSERT INTO product(id, name, price, active) VALUES
 -- (1, 'Testprodukt A', 9.99, TRUE),
 -- (2, 'Testprodukt B', 19.99, FALSE);
+
+
+DELETE from product;

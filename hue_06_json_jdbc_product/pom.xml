@@ -81,5 +81,43 @@
         </dependency>
     </dependencies>
 
+    <profiles>
+        <!-- Profil für Chat MainWindow -->
+        <!-- use it if multiple examples are used -->
+        <profile>
+            <id>hue_06_jfx_main</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <main.class>at.cgsit.train.productimport.jfx_gui.JfxMainApp</main.class>
+            </properties>
+        </profile>
+    </profiles>
 
+    <build>
+        <plugins>
+            <!-- Java compiler -->
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.11.0</version>
+                <configuration>
+                    <release>${java.version}</release>
+                </configuration>
+            </plugin>
+
+            <!-- JavaFX Maven Plugin -->
+            <plugin>
+                <groupId>org.openjfx</groupId>
+                <artifactId>javafx-maven-plugin</artifactId>
+                <version>${javafx.maven.plugin.version}</version>
+                <configuration>
+                    <!-- Your JavaFX Application class -->
+
+                    <!-- Die mainClass wird hier durch die Profile-Properties überschrieben -->
+                    <mainClass>${main.class}</mainClass>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>

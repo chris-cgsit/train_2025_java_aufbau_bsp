@@ -11,61 +11,61 @@ import java.sql.SQLException;
 import java.util.List;
 
 /**
-* Service, der die in der Datenbank gespeicherten Produkte listet.
-*/
+ * Service, der die in der Datenbank gespeicherten Produkte listet.
+ */
 public class ListService implements AppService {
 
 
-private final DatabaseConnectionFactory connectionFactory;
-private final ProductFormatter formatter;
+  private final DatabaseConnectionFactory connectionFactory;
+  private final ProductFormatter formatter;
 
 
-public ListService() {
-this.connectionFactory = new DatabaseConnectionFactory();
-this.formatter = new ProductFormatter();
-}
+  public ListService() {
+    this.connectionFactory = new DatabaseConnectionFactory();
+    this.formatter = new ProductFormatter();
+  }
 
 
-// Für Tests/Erweiterungen
-public ListService(DatabaseConnectionFactory connectionFactory, ProductFormatter formatter) {
-this.connectionFactory = connectionFactory;
-this.formatter = formatter;
-}
+  // Für Tests/Erweiterungen
+  public ListService(DatabaseConnectionFactory connectionFactory, ProductFormatter formatter) {
+    this.connectionFactory = connectionFactory;
+    this.formatter = formatter;
+  }
 
 
-@Override
-public void execute(AppConfig config) {
-System.out.println("=== ListService gestartet ===");
-System.out.println("Konfiguration: " + config);
+  @Override
+  public void execute(AppConfig config) {
+    System.out.println("=== ListService gestartet ===");
+    System.out.println("Konfiguration: " + config);
 
 
-try (Connection conn = connectionFactory.createConnection(config)) {
-ProductRepository repository = new ProductRepository(conn);
+    try (Connection conn = connectionFactory.createConnection(config)) {
+      ProductRepository repository = new ProductRepository(conn);
 
 
-List<Product> products;
-if (Boolean.TRUE.equals(config.onlyActive())) {
-products = repository.findActive();
-} else {
-products = repository.findAll();
-}
+      List<Product> products;
+      if (Boolean.TRUE.equals(config.onlyActive())) {
+        products = repository.findActive();
+      } else {
+        products = repository.findAll();
+      }
 
 
-if (products.isEmpty()) {
-System.out.println("Keine Produkte in der Datenbank gefunden.");
-return;
-}
+      if (products.isEmpty()) {
+        System.out.println("Keine Produkte in der Datenbank gefunden.");
+        return;
+      }
 
 
-System.out.println("Gefundene Produkte: " + products.size());
-for (Product p : products) {
-System.out.println(formatter.format(p));
-}
+      System.out.println("Gefundene Produkte: " + products.size());
+      for (Product p : products) {
+        System.out.println(formatter.format(p));
+      }
 
 
-} catch (SQLException e) {
-System.err.println("Datenbankfehler beim List-Service: " + e.getMessage());
-e.printStackTrace(System.err);
-}
-}
+    } catch (SQLException e) {
+      System.err.println("Datenbankfehler beim List-Service: " + e.getMessage());
+      e.printStackTrace(System.err);
+    }
+  }
 }
