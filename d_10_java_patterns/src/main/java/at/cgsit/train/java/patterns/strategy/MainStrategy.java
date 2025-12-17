@@ -46,6 +46,7 @@ public class MainStrategy {
 
         // dann von ARGS
         debugArgs(args);
+
         String argsParam1 = args[0];
         if(argsParam1 != null) {
             // schalter x mit direktem programm argument übersteuern
