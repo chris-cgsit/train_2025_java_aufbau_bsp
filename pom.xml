@@ -65,6 +65,7 @@
         <module>a_15_records</module>
         <module>d_10_java_patterns</module>
         <module>d_20_logging</module>
+        <module>d_30_javadoc</module>
     </modules>
 
     <dependencyManagement>
