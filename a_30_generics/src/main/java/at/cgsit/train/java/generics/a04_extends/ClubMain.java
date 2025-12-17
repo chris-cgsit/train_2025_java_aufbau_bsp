@@ -16,14 +16,13 @@ public class ClubMain {
 
   static void main() {
 
-    Club<Player> club =
-        new Club<>(new Player("Max"));
-
+      Club<Person> club = new Club<>(new Person("Max"));
+      club.printName();
 
     Club<?> clubTwo =
         new Club<>(new Player("Max"));
-
     clubTwo.printName();
+
 
   }
 

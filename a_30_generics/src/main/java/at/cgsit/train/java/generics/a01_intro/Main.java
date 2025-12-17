@@ -21,7 +21,7 @@ public class Main {
 
     testListWithRawTypes();
 
-    List<String> list = new ArrayList<>();
+      List<String> list = new ArrayList<String>();
     list.add("Hello");
     String value = list.get(0);
 
@@ -31,12 +31,26 @@ public class Main {
   }
 
   private static void testListWithRawTypes() {
-    List list = new ArrayList();
-    list.add("Hello");
+
+      List list = null;
+      list = new ArrayList();
+
+      list.add("Hello World chat message");
     list.add(42);      // erlaubt!
 
+
     String text = (String) list.get(0);   // OK
-    String number = (String) list.get(1); // Laufzeitfehler!
+      // String number = (String) list.get(1); // Laufzeitfehler!
+
+      Object o = list.get(1);
+      if (o instanceof String) {
+          // ja es ist ein string
+          String myString = (String) o;
+          System.out.printf("mystring is: %s \n", myString);
+      } else {
+          System.out.printf("was ist es %s \n", o.getClass().getName());
+      }
+
   }
 }
 

@@ -14,7 +14,7 @@ package at.cgsit.train.java.generics.a02_box;
 
 /**
  * Box mit generic type T
- * @param <T>
+ * @param <T> das ist mein generischer Paramter .. für diese Klasse
  */
 public class Box<T> {
 
@@ -27,5 +27,6 @@ public class Box<T> {
     public T get() {
         return value;
     }
+
 }
 

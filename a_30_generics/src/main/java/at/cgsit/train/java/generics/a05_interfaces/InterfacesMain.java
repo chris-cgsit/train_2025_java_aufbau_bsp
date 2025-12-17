@@ -16,8 +16,13 @@ public class InterfacesMain {
 
   static void main() {
 
+      // PersonRepository repo = new PersonRepository();
+
     Repository<Person> repo = new PersonRepository();
+
     Person p = repo.findById(1L);
+
+
   }
 
 }

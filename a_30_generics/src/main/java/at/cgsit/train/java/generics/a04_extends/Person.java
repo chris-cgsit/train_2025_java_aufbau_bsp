@@ -12,7 +12,7 @@
 
 package at.cgsit.train.java.generics.a04_extends;
 
-public class Person {
+public class Person implements PersonInterface {
 
     private final String name;
 

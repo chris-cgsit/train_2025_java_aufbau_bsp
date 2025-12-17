@@ -12,12 +12,29 @@
 
 package at.cgsit.train.java.generics.a06_methods;
 
+import at.cgsit.train.java.generics.a05_interfaces.Person;
+
+import java.math.BigDecimal;
+import java.util.function.Predicate;
+
 public class MethodsMain {
 
   static void main() {
 
-    String s = Util.identity("Hello");
-    Integer i = Util.identity(42);
+//    String s = Util.identity("Hello");
+//    Integer i = Util.identity(42);
+//    Person result = Util.identity(new Person());
+
+      int hashCode = Util.identity("Hello");
+
+      int hashCode2 = Util.identityWithExtends(new Person());
+
+      Util<String> u = new Util();
+
+      int hashCode3 = u.instanzMethode(BigDecimal.valueOf(10L));
+
+      Predicate<String> p;
+
 
 
   }

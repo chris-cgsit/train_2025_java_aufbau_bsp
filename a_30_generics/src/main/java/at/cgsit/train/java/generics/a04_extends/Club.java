@@ -12,7 +12,15 @@
 
 package at.cgsit.train.java.generics.a04_extends;
 
-public class Club<T extends Person> {
+/**
+ * bei genertischen typen ist immer extends zu verwenden egal ob
+ * es sich auf eine Klasse oder ein Interface bezieht.
+ * das objekt das da verwendet wird muss das Interface implmeentieren
+ * oder die Klasse erwetern/extends.
+ *
+ * @param <T> siehe text
+ */
+public class Club<T extends PersonInterface> {
 
     private final T member;
 
@@ -21,6 +29,9 @@ public class Club<T extends Person> {
     }
 
     public void printName() {
+
+        this.member.getName();
         System.out.println(member.getName());
+
     }
 }

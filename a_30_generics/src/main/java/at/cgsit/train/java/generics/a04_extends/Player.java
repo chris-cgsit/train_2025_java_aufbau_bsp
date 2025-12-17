@@ -18,7 +18,13 @@ public class Player extends Person {
         super(name);
     }
 
+    @Override
+    public String getName() {
+        return super.getName() + " from player";
+    }
+
     public void play() {
         System.out.println(getName() + " spielt");
     }
+
 }

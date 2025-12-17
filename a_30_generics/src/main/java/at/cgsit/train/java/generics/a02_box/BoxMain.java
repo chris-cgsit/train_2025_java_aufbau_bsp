@@ -12,19 +12,26 @@
 
 package at.cgsit.train.java.generics.a02_box;
 
+import java.io.ObjectStreamException;
+
 public class BoxMain {
 
   static void main() {
 
     Box<String> stringBox = new Box<>();
-    stringBox.set("Hello");
+      stringBox.set("öalksdjf");
 
     String s = stringBox.get(); // kein Cast nötig
 
     Box<Integer> intBox = new Box<>();
     intBox.set(42);
 
-    Integer i = intBox.get();
+      Object i = intBox.get();
+      if (i instanceof Integer d) {
+          int i1 = d.intValue();
+          System.out.println("int value " + i1);
+      }
+
 
   }
 
