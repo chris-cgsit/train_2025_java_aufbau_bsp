@@ -37,6 +37,7 @@
         <module>a_05_arrays</module>
         <module>a_25_vererbung</module>
         <module>a_28_exceptions</module>
+        <module>a_30_generics</module>
         <module>a_45_streams_functional</module>
         <module>a_40_collections</module>
         <module>a_52_obj_serialisierung</module>
