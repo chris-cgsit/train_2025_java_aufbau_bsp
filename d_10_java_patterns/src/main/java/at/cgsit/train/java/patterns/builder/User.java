@@ -25,11 +25,25 @@ public class User {
         this.newsletter = b.newsletter;
     }
 
+    @Override
+    public String toString() {
+        return "User{" +
+                "name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", age=" + age +
+                ", newsletter=" + newsletter +
+                '}';
+    }
+
     public static class Builder {
         private String name;
         private String email;
         private int age = 0;
         private boolean newsletter = false;
+
+        public Builder() {
+            // default constructor
+        }
 
         public Builder name(String name) {
             this.name = name;
@@ -52,4 +66,6 @@ public class User {
             return new User(this);
         }
     }
+
+
 }

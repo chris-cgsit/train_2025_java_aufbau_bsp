@@ -29,6 +29,9 @@ public class CallableDemo {
         Future<String> future = executor.submit(task);
 
         System.out.println("Warte auf Ergebnis...");
+
+        future.isDone()
+
         String result = future.get();  // blockiert
 
         System.out.println("Ergebnis: " + result);

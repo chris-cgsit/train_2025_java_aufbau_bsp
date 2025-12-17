@@ -12,6 +12,12 @@
 
 package at.cgsit.train.java.patterns.decorator;
 
-public interface Notifier {
+public interface InfoSender {
+
+    /**
+     * send mehtode wird dekoriert durch eienn oder mehrere dekorators
+     * @param message
+     */
     void send(String message);
+
 }

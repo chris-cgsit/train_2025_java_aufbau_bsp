@@ -14,9 +14,17 @@ package at.cgsit.train.java.patterns.singleton;
 
 public class MainSingleton {
 
-  static void main() {
-    Config cfg = Config.getInstance();
+    static void main() {
 
-  }
+        // durch den private Konstruktur ist die Instanzierung hier unmöglicgh
+        // Config newConfig = new Config();
+
+        // aber vie static factory Methode kann das singleton Objekt erhalten werden
+        Config cfg = Config.getInstance();
+
+        String mykey = cfg.getConfigValue("mykey");
+        System.out.println("config objekt verwendet");
+
+    }
 
 }

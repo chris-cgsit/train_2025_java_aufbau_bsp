@@ -20,6 +20,8 @@ public class CheckoutService {
     }
 
     public void pay(double amount) {
+
+        // mache die arbeit
         strategy.pay(amount);
     }
 }

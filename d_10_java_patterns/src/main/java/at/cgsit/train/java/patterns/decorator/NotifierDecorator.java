@@ -12,14 +12,22 @@
 
 package at.cgsit.train.java.patterns.decorator;
 
-public class NotifierDecorator implements Notifier {
-    protected final Notifier wrappee;
+public class NotifierDecorator implements InfoSender {
+    protected final InfoSender wrappee;
 
-    public NotifierDecorator(Notifier wrappee) {
+
+    public NotifierDecorator(InfoSender wrappee) {
         this.wrappee = wrappee;
     }
 
+
     public void send(String message) {
+
+        System.out.println("before wrapee");
+
         wrappee.send(message);
+
+        System.out.println("after wrapee");
+
     }
 }

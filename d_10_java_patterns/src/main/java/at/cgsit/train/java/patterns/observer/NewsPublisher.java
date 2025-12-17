@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class NewsPublisher {
+
     private final List<Observer> observers = new ArrayList<>();
 
     public void addObserver(Observer obs) {

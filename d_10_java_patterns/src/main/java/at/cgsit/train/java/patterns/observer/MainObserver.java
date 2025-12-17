@@ -19,6 +19,8 @@ public class MainObserver {
 
     publisher.addObserver(new EmailSubscriber());
     publisher.addObserver(msg -> System.out.println("Lambda: " + msg));
+    publisher.addObserver(new EmailSubscriber());
+    publisher.addObserver(new EmailSubscriber());
 
     publisher.publish("NEWS: Builder Pattern erklärt!");
 

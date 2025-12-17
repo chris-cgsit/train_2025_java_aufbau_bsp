@@ -12,7 +12,7 @@
 
 package at.cgsit.train.java.patterns.decorator;
 
-public class EmailNotifier implements Notifier {
+public class EmailNotifier implements InfoSender {
     public void send(String message) {
         System.out.println("Email: " + message);
     }

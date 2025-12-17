@@ -30,4 +30,10 @@ public class Config {
         }
         return INSTANCE;
     }
+
+    public String getConfigValue( String key) {
+        // da gibts noch nix
+        return "";
+    }
+
 }

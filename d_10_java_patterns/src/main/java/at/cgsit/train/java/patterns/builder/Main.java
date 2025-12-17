@@ -20,8 +20,10 @@ public class Main {
         .name("Chris")
         .email("cgs@example.com")
         .age(40)
-        .newsletter(true)
+        .newsletter(true).age(23)
         .build();
+
+      System.out.println(user.toString());
 
   }
 }

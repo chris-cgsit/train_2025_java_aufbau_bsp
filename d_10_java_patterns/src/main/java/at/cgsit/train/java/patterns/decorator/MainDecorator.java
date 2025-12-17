@@ -15,13 +15,16 @@ package at.cgsit.train.java.patterns.decorator;
 public class MainDecorator {
 
   static void main() {
-    Notifier notifier =
-        new SMSNotifier(
-            new EmailNotifier()
-        );
 
-    notifier.send("Willkommen bei CGS!");
+    InfoSender notifier =
+        new NotifierDecorator( new EmailNotifier() );
+       // notifier.send("Willkommen bei CGS!");
+
+      InfoSender notifierwithSmsCore = InfoSenderFactory.factoryMethdforInfoSender();
+
+      notifierwithSmsCore.send("Willkommen bei CGS mit SMS!");
 
   }
+
 
 }

@@ -56,6 +56,8 @@ public class ImageDownloader {
     public static void main(String[] args) {
         String imageToDownload = "https://picsum.photos/200/200.jpg"; // **ERSETZEN Sie DIES** durch die tatsächliche URL
 
+        String userDir = System.getProperty("user.dir");
+        System.out.println("current user dir would be: " + userDir);
         String tempDir = System.getProperty("java.io.tmpdir");
         String targetPath = tempDir + File.separator + "temp_downloaded_image.jpg";
 

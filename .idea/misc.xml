@@ -13,10 +13,10 @@
     </option>
     <option name="ignoredFiles">
       <set>
-        <option value="$USER_HOME$/abgaben/elisabeth/Chatserver (1)/Chatserver/pom.xml" />
-        <option value="$USER_HOME$/import_test/pom.xml" />
         <option value="$PROJECT_DIR$/../hue_produktverwaltung/pom.xml" />
         <option value="$PROJECT_DIR$/../teehaus_test/pom.xml" />
+        <option value="$USER_HOME$/abgaben/elisabeth/Chatserver (1)/Chatserver/pom.xml" />
+        <option value="$USER_HOME$/import_test/pom.xml" />
       </set>
     </option>
   </component>

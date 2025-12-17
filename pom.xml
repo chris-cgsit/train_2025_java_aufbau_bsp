@@ -63,7 +63,6 @@
         <module>c_20_job_framework</module>
         <module>a_15_records</module>
         <module>d_10_java_patterns</module>
-        <module>a_30_generics</module>
     </modules>
 
     <dependencyManagement>

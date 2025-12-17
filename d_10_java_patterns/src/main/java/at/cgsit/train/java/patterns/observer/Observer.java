@@ -12,6 +12,7 @@
 
 package at.cgsit.train.java.patterns.observer;
 
+@FunctionalInterface
 public interface Observer {
     void update(String message);
 }
