@@ -17,7 +17,9 @@ import at.cgsit.train.productimport.db.DatabaseConnectionFactory;
 import at.cgsit.train.productimport.db.ProductRepository;
 import at.cgsit.train.productimport.model.Product;
 import at.cgsit.train.productimport.util.ProductFormatter;
+import jdk.jshell.spi.ExecutionControl;
 
+import java.io.File;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
@@ -79,5 +81,10 @@ public class ListService implements AppService {
       System.err.println("Datenbankfehler beim List-Service: " + e.getMessage());
       e.printStackTrace(System.err);
     }
+  }
+
+  @Override
+  public void execute(AppConfig appConfig, File selectedImportFile) {
+    throw new RuntimeException("not implmented");
   }
 }

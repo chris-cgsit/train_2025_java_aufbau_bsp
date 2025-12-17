@@ -5,21 +5,18 @@
 <?import javafx.scene.layout.HBox?>
 <?import java.net.URL?>
 
-<!--
-  ~  Copyright © 2025 CGS IT Solutions GmbH.
-  ~  All rights reserved.
-  ~
-  ~  This source code is proprietary intellectual property
-  ~  of CGS IT Solutions GmbH and is provided solely for use
-  ~  within licensed training programs.
-  ~
-  ~   Any copying, redistribution, modification, or use
-  ~   beyond the permitted scope is strictly prohibited.
-  -->
-
-<VBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+<VBox xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="at.cgsit.train.productimport.jfx_gui.ProductController"
       spacing="10">
+
+    <!--
+        View (FXML)
+        - Enthält NUR Layout & UI-Struktur
+        - KEINE Logik
+        - KEINE Datenbank
+        - KEINE Business-Regeln
+    -->
 
     <stylesheets>
         <URL value="@/styles/styles.css" />
@@ -27,22 +24,42 @@
 
     <Label text="Produktverwaltung" styleClass="header-label" />
 
+    <!--
+        TableView
+        - Beobachtet die ObservableList im Controller
+        - Spalten werden im initialize() gemappt
+    -->
     <TableView fx:id="productTable" VBox.vgrow="ALWAYS">
         <columns>
-            <TableColumn fx:id="idColumn" text="ID" prefWidth="50"/>
-            <TableColumn fx:id="nameColumn" text="Name" prefWidth="250"/>
-            <TableColumn fx:id="priceColumn" text="Preis (€)" prefWidth="100"/>
-            <TableColumn fx:id="activeColumn" text="Aktiv" prefWidth="70"/>
-            <TableColumn fx:id="createdAtColumn" text="Erstellt am" prefWidth="180"/>
+            <TableColumn fx:id="idColumn" text="ID" prefWidth="50" />
+            <TableColumn fx:id="nameColumn" text="Name" prefWidth="250" />
+            <TableColumn fx:id="priceColumn" text="Preis (€)" prefWidth="100" />
+            <TableColumn fx:id="activeColumn" text="Aktiv" prefWidth="70" />
+            <TableColumn fx:id="createdAtColumn" text="Erstellt am" prefWidth="180" />
         </columns>
     </TableView>
 
-    <HBox spacing="10" alignment="CENTER_LEFT">
-        <Button fx:id="loadFileButton" text="Load File" onAction="#handleLoadFile"/>
-        <Separator orientation="VERTICAL" />
-        <Button fx:id="cleanDbButton" text="Clean DB" onAction="#handleCleanDB"/>
-        <Button fx:id="exportDbButton" text="Export DB" onAction="#handleExportDB"/>
 
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <TextField fx:id="filePathField"
+                   promptText="Bitte Import-Datei auswählen"
+                   editable="false"
+                   HBox.hgrow="ALWAYS"/>
+
+        <Button text="Browse…" onAction="#handleChooseFile"/>
+    </HBox>
+
+
+    <!--
+        Actions
+        - onAction ruft Methoden im Controller auf
+        - KEIN Code im FXML
+    -->
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <Button fx:id="loadFileButton" text="Load File" onAction="#handleLoadFile" />
+        <Separator orientation="VERTICAL" />
+        <Button fx:id="cleanDbButton" text="Clean DB" onAction="#handleCleanDB" />
+        <Button fx:id="exportDbButton" text="Export DB" onAction="#handleExportDB" />
     </HBox>
 
 </VBox>

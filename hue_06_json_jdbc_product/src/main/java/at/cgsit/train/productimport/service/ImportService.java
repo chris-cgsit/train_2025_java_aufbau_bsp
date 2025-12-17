@@ -18,6 +18,7 @@ import at.cgsit.train.productimport.db.ProductRepository;
 import at.cgsit.train.productimport.file.ProductFileImporter;
 import at.cgsit.train.productimport.model.Product;
 
+import java.io.File;
 import java.nio.file.Path;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -32,10 +33,10 @@ import java.util.Optional;
  */
 public class ImportService implements AppService {
 
-
     private final DatabaseConnectionFactory connectionFactory;
     private final ProductFileImporter fileImporter;
-
+    private AppConfig appConfig;
+    private File selectedImportFile;
 
     public ImportService() {
         this.connectionFactory = new DatabaseConnectionFactory();
@@ -118,5 +119,15 @@ public class ImportService implements AppService {
             System.err.println("Fehler beim Import: " + e.getMessage());
             e.printStackTrace(System.err);
         }
+    }
+
+    @Override
+    public void execute(AppConfig appConfig, File selectedImportFile) {
+        this.selectedImportFile = selectedImportFile;
+      if (! selectedImportFile.exists() ) {
+            throw new RuntimeException("import file does NOT exist");
+      }
+        this.execute(appConfig);
+
     }
 }

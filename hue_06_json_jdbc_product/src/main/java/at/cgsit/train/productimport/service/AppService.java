@@ -18,6 +18,7 @@ import at.cgsit.train.productimport.db.ProductRepository;
 import at.cgsit.train.productimport.file.ProductFileImporter;
 import at.cgsit.train.productimport.model.Product;
 
+import java.io.File;
 import java.nio.file.Path;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -35,5 +36,13 @@ public interface AppService {
      * Führt die Service-Logik mit der übergebenen Konfiguration aus.
      */
     void execute(AppConfig config);
+
+  /**
+   * for GUI to load the selected file via GUI
+   *
+   * @param appConfig config / TODO should be set via constructor
+   * @param selectedImportFile file to improt
+   */
+  void execute(AppConfig appConfig, File selectedImportFile);
 }
 
