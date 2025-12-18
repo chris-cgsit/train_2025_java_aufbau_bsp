@@ -67,6 +67,7 @@
         <module>d_20_logging</module>
         <module>d_30_javadoc</module>
         <module>a_23_module</module>
+        <module>d_40_annotation</module>
     </modules>
 
     <dependencyManagement>

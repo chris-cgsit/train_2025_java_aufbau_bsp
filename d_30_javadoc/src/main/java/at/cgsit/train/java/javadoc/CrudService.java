@@ -16,14 +16,18 @@ package at.cgsit.train.java.javadoc;
  * Demonstrates HTML usage in Javadoc.
  *
  * <h2>Supported operations</h2>
+ *
  * <ul>
  *   <li>Create</li>
  *   <li>Read</li>
  *   <li>Update</li>
  *   <li>Delete</li>
  * </ul>
+ * <p>aölkjösdkjföasdf </p>
+ * <p>
+ *     <b>Note:</b> <b> This is a demo class.</b>
+ * </p>
  *
- * <p><b>Note:</b> This is a demo class.</p>
  */
 public class CrudService {
 }

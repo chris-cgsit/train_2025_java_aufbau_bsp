@@ -26,7 +26,7 @@ public class Calculator {
      * Adds two integers.
      *
      * @param a first value
-     * @param b second value
+     * @param b second value addiert diesen wert mit {@code a}
      * @return sum of {@code a} and {@code b}
      */
     public int add(int a, int b) {

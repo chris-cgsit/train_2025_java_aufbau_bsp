@@ -12,6 +12,8 @@
 
 package at.cgsit.train.java.javadoc;
 
+import java.io.IOException;
+
 /**
  * Generic container.
  *
@@ -19,21 +21,40 @@ package at.cgsit.train.java.javadoc;
  */
 public class Box<T> {
 
+    /**
+     * was hat dieser Value für einen fachlichen Zweck..
+     */
     private final T value;
 
     /**
      * Creates a new box.
      *
-     * @param value value to store
+     * @param value das ist der input value mit dem gerachnet wird
      */
     public Box(T value) {
         this.value = value;
     }
 
     /**
-     * @return stored value
+     * be return values immer gut wenn man beschreibt was sonderfälle sind, null, etc
+     * @return stored value .. return beschreibt den rückabe wert
+     * @throws RuntimeException wenn das und das schieft geht ...
      */
     public T getValue() {
         return value;
     }
+
+    /**
+     * wofür ist diese methdoe da
+     *
+     * @return Integer als ergebenis
+     * @throws IOException wenn das file nicht vorhanden ist
+     * @since 2.1.0
+     * @deprecated diese methode wird iin der nächster version ersetzt
+     */
+    public Integer doit() throws IOException {
+
+        return 0;
+    }
+
 }
