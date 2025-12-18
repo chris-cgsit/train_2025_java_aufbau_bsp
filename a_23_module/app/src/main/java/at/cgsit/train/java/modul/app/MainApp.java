@@ -13,11 +13,19 @@
 package at.cgsit.train.java.modul.app;
 
 import at.cgsit.train.java.impl.GreetingServiceImpl;
+import at.cgsit.train.java.modul.dto.PersonDTO;
 
 public class MainApp {
 
     public static void main(String[] args) {
+
         var service = new GreetingServiceImpl();
         System.out.println(service.greet("Chris"));
+
+        PersonDTO result = service.echoPerson(new PersonDTO());
+
+        System.out.println("person reuslt " + result.toString());
+
+
     }
 }
