@@ -17,13 +17,30 @@ import java.util.logging.Logger;
 
 public class LevelCheckExample {
 
-    private static final Logger LOG =
-            Logger.getLogger(LevelCheckExample.class.getName());
+    private static final Logger LOG = Logger.getLogger(LevelCheckExample.class.getName());
 
     public static void main(String[] args) {
 
+        // mit logging varablen
+        String username = "chris";
+        int retryCount = 3;
+        boolean enabled = true;
+
+        // super schnelle pre prüfung ob dieser Log level der zeit aktiviert ist ,
+        // nur dann machen wir die 3 aufwändeigen statement zum loggen
         if (LOG.isLoggable(Level.FINE)) {
+
             LOG.fine("Expensive debug message");
+            LOG.log(
+                    Level.INFO,
+                    "User login: username={0}, retryCount={1}, enabled={2}",
+                    new Object[]{username, retryCount, enabled}
+            );
+            LOG.log(
+                    Level.INFO,
+                    "User login: username={0}, retryCount={1}, enabled={2}",
+                    new Object[]{username, retryCount, enabled}
+            );
         }
     }
 }

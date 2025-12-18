@@ -62,7 +62,7 @@ public class ImportService implements AppService {
             return;
         }
 
-
+        // das fle muss unter %user.dir%/data/products.json
         Path file = Path.of(config.inputFile());
 
 
