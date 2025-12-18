@@ -12,4 +12,5 @@ public @interface Audit {
     String value();          // Pflicht
 
     boolean enabled() default true;
+
 }
