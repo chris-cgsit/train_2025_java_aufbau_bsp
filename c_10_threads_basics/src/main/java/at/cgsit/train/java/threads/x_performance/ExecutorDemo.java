@@ -21,7 +21,8 @@ public class ExecutorDemo {
     // Holen wir uns die Anzahl der verfügbaren Prozessoren/Kerne
     private static final int NUM_CORES = Runtime.getRuntime().availableProcessors();
     // Verwenden wir die Anzahl der Kerne für den FixedThreadPool, um maximale CPU-Auslastung zu zeigen
-    private static final int POOL_SIZE = NUM_CORES /2;
+    private static final int POOL_SIZE = NUM_CORES / 2;
+    e
     
     // Gesamtanzahl der Tasks für beide Szenarien
     private static final int NUM_TASKS = NUM_CORES /2 ;

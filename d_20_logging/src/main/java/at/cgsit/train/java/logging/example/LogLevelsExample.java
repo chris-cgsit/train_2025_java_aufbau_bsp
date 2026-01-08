@@ -27,9 +27,11 @@ public class LogLevelsExample {
 
     public static void main(String[] args) {
 
+        // in SLF4J heisst das ERROR
         LOG.severe("SEVERE message");
         LOG.warning("WARNING message");
         LOG.info("INFO message");
+        // oft dann als DEBUG bezeichent statt fine in anderen systemen. aber gleiche idee
         LOG.fine("FINE message");
         LOG.finest("FINEST message");
     }

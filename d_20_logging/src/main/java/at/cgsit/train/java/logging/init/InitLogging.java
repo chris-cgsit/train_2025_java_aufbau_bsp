@@ -16,18 +16,26 @@ import com.sun.tools.javac.Main;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Locale;
 import java.util.logging.LogManager;
 
 public class InitLogging {
 
   public static void init() {
-    try (InputStream in =
+
+      Locale.setDefault(Locale.ENGLISH);
+
+      try (InputStream in =
              Main.class.getClassLoader()
                  .getResourceAsStream("logging.properties")) {
 
-      LogManager.getLogManager().readConfiguration(in);
+          LogManager logManager =
+                  LogManager.getLogManager();
+          logManager.readConfiguration(in);
 
     } catch (Exception e) {
+          // system error geht zum Betriebssystem auf den ERORR oupt stream
+          // wird unter unix / linux /var/log/ *  .z.b. messages
       System.err.println("Logging config failed");
     }
 

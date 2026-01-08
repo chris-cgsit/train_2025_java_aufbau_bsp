@@ -12,12 +12,16 @@
 
 package at.cgsit.train.java.logging.example;
 
+import at.cgsit.train.java.logging.hello.MyService;
+
 import java.util.logging.Logger;
 
 public class HierarchyExample {
 
-    private static final Logger ROOT =
-            Logger.getLogger("at.cgsit");
+    // das wäre eine manuelle konfiguration für welche hirarchie stufe dieser logger ist
+    // die logger hierarchie muss NIHCT gleich der classpath packaging hierarchei sein
+    // es macht nur oft sinn .. und ist KISS
+    private static final Logger ROOT = Logger.getLogger("at.cgsit");
 
     private static final Logger CHILD =
             Logger.getLogger("at.cgsit.service");

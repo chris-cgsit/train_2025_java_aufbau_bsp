@@ -29,6 +29,7 @@ public class LegacyService {
 
     /**
      * New replacement method.
+     * @since 2.0.0
      */
     public void newMethod() {
         // new logic

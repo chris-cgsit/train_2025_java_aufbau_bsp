@@ -18,12 +18,11 @@ import java.util.logging.SimpleFormatter;
 
 public class FileLoggingExample {
 
-    private static final Logger LOG =
-            Logger.getLogger(FileLoggingExample.class.getName());
+    private static final Logger LOG = Logger.getLogger(FileLoggingExample.class.getName());
 
     public static void main(String[] args) throws Exception {
 
-        FileHandler fh = new FileHandler("app.log", true);
+        FileHandler fh = new FileHandler("logs/programaitsiches_app.log", true);
         fh.setFormatter(new SimpleFormatter());
 
         LOG.addHandler(fh);

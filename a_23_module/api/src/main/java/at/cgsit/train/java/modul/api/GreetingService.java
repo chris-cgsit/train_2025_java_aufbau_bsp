@@ -12,6 +12,14 @@
 
 package at.cgsit.train.java.modul.api;
 
+import at.cgsit.train.java.modul.dto.PersonDTO;
+
 public interface GreetingService {
+
     String greet(String name);
+
+    default PersonDTO echoPerson(PersonDTO input) {
+        return input;
+    }
 }
+
