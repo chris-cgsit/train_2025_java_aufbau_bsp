@@ -1,0 +1,41 @@
+@startuml
+title Produkt-Importer – Sequenzdiagramm (ListService.execute)
+autonumber
+
+actor User
+participant ProductImporterApp as App
+participant ConfigurationManager as ConfigMgr
+participant ListService as ListSvc
+participant DatabaseConnectionFactory as ConnFactory
+participant ProductRepository as Repo
+participant ProductFormatter as Formatter
+database DB
+
+User -> App: main(args)
+App -> ConfigMgr: load(args)
+ConfigMgr --> App: AppConfig
+
+App -> ListSvc: execute(config)
+
+ListSvc -> ConnFactory: createConnection(config)
+ConnFactory --> ListSvc: Connection
+
+alt config.onlyActive == true
+  ListSvc -> Repo: findActive()
+  Repo -> DB: SELECT ... WHERE active=true
+else
+  ListSvc -> Repo: findAll()
+  Repo -> DB: SELECT ...
+end
+
+DB --> Repo: rows
+Repo --> ListSvc: List<Product>
+
+loop for each Product
+  ListSvc -> Formatter: format(p)
+  Formatter --> ListSvc: String line
+  ListSvc -> User: print(line)
+end
+
+@enduml
+

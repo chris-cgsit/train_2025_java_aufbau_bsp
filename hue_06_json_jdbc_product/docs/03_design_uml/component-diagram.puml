@@ -1,0 +1,48 @@
+@startuml
+title Produkt-Importer – Komponentendiagramm (Layers)
+
+package "App / CLI" {
+  [ProductImporterApp]
+  [ConfigurationManager]
+  [AppConfig]
+}
+
+package "Service Layer" {
+  [AppService]
+  [ImportService]
+  [ListService]
+}
+
+package "File / Parsing" {
+  [ProductFileImporter]
+}
+
+package "DB / JDBC" {
+  [DatabaseConnectionFactory]
+  [ProductRepository]
+}
+
+package "Domain" {
+  [Product]
+}
+
+database "RDBMS" as DB
+
+[ProductImporterApp] --> [ConfigurationManager]
+[ConfigurationManager] --> [AppConfig]
+
+[ProductImporterApp] --> [AppService]
+[AppService] <|-- [ImportService]
+[AppService] <|-- [ListService]
+
+[ImportService] --> [ProductFileImporter]
+[ImportService] --> [DatabaseConnectionFactory]
+[ImportService] --> [ProductRepository]
+
+[ListService] --> [DatabaseConnectionFactory]
+[ListService] --> [ProductRepository]
+
+[ProductRepository] --> [Product]
+[ProductRepository] --> DB
+
+@enduml

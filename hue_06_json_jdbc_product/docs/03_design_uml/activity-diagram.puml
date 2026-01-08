@@ -1,0 +1,26 @@
+@startuml
+title Produkt-Importer – Aktivitätsdiagramm (Main + ConfigurationManager)
+
+start
+:ProductImporterApp.main(args);
+
+:ConfigurationManager.load(args);
+
+:parseArgs(args);
+:loadEnv();
+:loadProperties();
+:merge -> AppConfig\n(Priorität: Env > Properties > Defaults);
+
+if (config.mode == "import"?) then (ja)
+  :service = ImportService;
+  :service.execute(config);
+elseif (config.mode == "list"?) then (ja)
+  :service = ListService;
+  :service.execute(config);
+else (nein)
+  :Fehler: Unbekannter Mode;
+  stop
+endif
+
+stop
+@enduml
