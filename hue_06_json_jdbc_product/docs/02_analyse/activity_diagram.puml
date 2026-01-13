@@ -1,0 +1,43 @@
+@startuml
+title JSON Product Importer (from file) - Activity
+
+start
+:Read CLI args / config;
+:Resolve input file path;
+
+if (File exists?) then (yes)
+  :Open file stream;
+  :Read file content;
+else (no)
+  :Log error + return failure;
+  stop
+endif
+
+:Parse JSON -> Raw DTO list;
+
+if (JSON valid?) then (yes)
+else (no)
+  :Log parse errors;
+  stop
+endif
+
+:For each product DTO;
+
+repeat
+  :Validate required fields;
+  if (Valid?) then (yes)
+    :Map DTO -> Domain Product;
+    :Upsert product (DB);
+    if (DB ok?) then (yes)
+      :Collect success result;
+    else (no)
+      :Collect DB error;
+    endif
+  else (no)
+    :Collect validation error;
+  endif
+repeat while (More DTOs?) is (yes)
+
+:Write import report (success/errors);
+stop
+@enduml
