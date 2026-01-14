@@ -1,0 +1,112 @@
+@startuml
+title JSON Product Importer (from file) - Activity (enhanced)
+
+start
+:Read CLI args / config;
+:Resolve input file path;
+
+' --- File handling ---
+if (File exists & readable?) then (yes)
+  :Open file stream;
+  :Read file content;
+else (no)
+  :Log error (FILE_NOT_FOUND / NO_PERMISSION);
+  :Return exit code != 0;
+  stop
+endif
+
+' --- Parse ---
+:Parse JSON -> Raw DTO list;
+
+if (JSON syntax ok?) then (yes)
+else (no)
+  :Log parse error + line/column;
+  :Write import report (FAILED_PARSE);
+  stop
+endif
+
+' --- Schema / structure ---
+:Validate JSON structure (schema/basic shape);
+
+if (Schema ok?) then (yes)
+else (no)
+  :Log schema violations (missing arrays/fields);
+  :Write import report (FAILED_SCHEMA);
+  stop
+endif
+
+' --- Import strategy ---
+:Initialize ImportContext (runId, startedAt, mode);
+if (Dry-run?) then (yes)
+  :Mark context as DRY_RUN;
+else (no)
+  :Start DB transaction (optional);
+endif
+
+' --- Process items ---
+:For each product DTO;
+repeat
+  :Normalize (trim, case, numbers, currency);
+  :Validate required fields (id/name/price/...);
+
+  if (Valid required fields?) then (yes)
+    :Map DTO -> Domain Product;
+
+    ' === EXTRA BRANCH: optional enrichment/dedup ===
+    if (Enrichment enabled?) then (yes)
+      :Enrich (category mapping / attributes extraction);
+      if (Enrichment ok?) then (yes)
+      else (no)
+        :Collect warning (ENRICHMENT_FAILED);
+        ' continue with base product
+      endif
+    else (no)
+      ' skip enrichment
+    endif
+
+    :Detect duplicates in same file (by sku/ean/id);
+    if (Duplicate found?) then (yes)
+      :Collect error (DUPLICATE_IN_FILE);
+    else (no)
+      :Upsert strategy decision;
+      if (Existing product in DB?) then (yes)
+        :Update existing record;
+      else (no)
+        :Insert new record;
+      endif
+
+      if (DB write ok?) then (yes)
+        :Collect success (CREATED/UPDATED);
+      else (no)
+        :Collect error (DB_CONSTRAINT / TIMEOUT);
+        if (Fail-fast?) then (yes)
+          :Rollback transaction (if open);
+          :Write import report (FAILED_DB);
+          stop
+        else (no)
+          :Continue with next product;
+        endif
+      endif
+    endif
+
+  else (no)
+    :Collect error (VALIDATION_FAILED);
+  endif
+
+repeat while (More DTOs?) is (yes)
+
+' --- Finish ---
+if (Dry-run?) then (yes)
+  :Write report (DRY_RUN_NO_CHANGES);
+else (no)
+  if (Any critical errors?) then (yes)
+    :Rollback transaction (if configured);
+    :Write report (ROLLED_BACK);
+  else (no)
+    :Commit transaction (if configured);
+    :Write report (SUCCESS / PARTIAL_SUCCESS);
+  endif
+endif
+
+stop
+@enduml

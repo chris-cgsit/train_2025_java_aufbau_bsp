@@ -1,0 +1,23 @@
+@startuml
+title Example Activity Diagram – Product Import (UML Focus)
+
+start
+:Read input file;
+
+if (File readable?) then (yes)
+  :Parse JSON;
+else (no)
+  :Handle file error;
+  stop
+endif
+
+if (JSON valid?) then (yes)
+  :Process items;
+else (no)
+  :Handle parse error;
+  stop
+endif
+
+:Save result;
+stop
+@enduml
